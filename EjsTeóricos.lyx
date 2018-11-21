@@ -1,0 +1,3726 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin /home/octavio/Muestreo/MaterialDelProfesor/TP1/
+\textclass amsart
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language spanish-mexico
+\language_package babel
+\inputencoding utf8
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Ejercicios pedidos por el tp
+\end_layout
+
+\begin_layout Section*
+Ejercicios de la Guía 2
+\end_layout
+
+\begin_layout Subsection*
+Ejercicio 7
+\end_layout
+
+\begin_layout Subsubsection*
+a
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\hat{\overline{y}}^{*}=\begin{cases}
+\overline{y}_{\pi}-C & y_{1}\notin s;y_{N}\in s\\
+\overline{y}_{\pi}+C & y_{1}\in s;y_{N}\notin s\\
+\overline{y}_{\pi} & y_{1}\in s;y_{N}\in s
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $\hat{\overline{y}}^{*}$
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Favor de leer 
+\begin_inset Quotes fld
+\end_inset
+
+Y media sombrero estrella
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ es insesgado.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $S_{A}=\left\{ s\in\Omega/y_{1}\notin s;y_{N}\in s\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $S_{B}=\left\{ s\in\Omega/y_{1}\in s;y_{N}\notin s\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $S_{C}=\overline{S_{A}\cup S_{B}}=\left\{ s\in\Omega/\left(y_{1}\in s\wedge y_{N}\in s\right)\vee\left(y_{1}\notin s\wedge y_{N}\notin s\right)\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $\bigcup_{\left\{ A;B;C\right\} }S_{i}=\Omega$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\mathbb{E}\left(\hat{\overline{y}}^{*}\left(S\right)\right)=\sum_{s\in\Omega}p\left(s\right)\cdot\hat{\overline{y}}^{*}\left(s\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $\Omega=S_{A}+S_{B}+S_{C}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\mathbb{E}\left(\hat{\overline{y}}^{*}\left(S\right)\right)=\sum_{s\in S_{A}}p\left(s\right)\cdot\hat{\overline{y}}^{*}\left(s\right)+\sum_{s\in S_{B}}p\left(s\right)\cdot\hat{\overline{y}}^{*}\left(s\right)+\sum_{s\in S_{C}}p\left(s\right)\cdot\hat{\overline{y}}^{*}\left(s\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\mathbb{E}\left(\hat{\overline{y}}^{*}\left(S\right)\right)=\sum_{s\in S_{A}}p\left(s\right)\cdot\left(\overline{y}_{\pi}\left(s\right)-C\right)+\sum_{s\in S_{B}}p\left(s\right)\cdot\left(\overline{y}_{\pi}\left(s\right)+C\right)+\sum_{s\in S_{C}}p\left(s\right)\cdot\overline{y}_{\pi}\left(s\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\mathbb{E}\left(\hat{\overline{y}}^{*}\left(S\right)\right)=\sum_{s\in S_{A}}p\left(s\right)\cdot\overline{y}_{\pi}\left(s\right)-\sum_{s\in S_{A}}p\left(s\right)\cdot C+\sum_{s\in S_{B}}p\left(s\right)\cdot\overline{y}_{\pi}\left(s\right)+\sum_{s\in S_{B}}p\left(s\right)\cdot C+\sum_{s\in S_{C}}p\left(s\right)\cdot\overline{y}_{\pi}\left(s\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\mathbb{E}\left(\hat{\overline{y}}^{*}\left(S\right)\right)=\left[\sum_{s\in S_{A}}p\left(s\right)\cdot\overline{y}_{\pi}\left(s\right)+\sum_{s\in S_{B}}p\left(s\right)\cdot\overline{y}_{\pi}\left(s\right)+\sum_{s\in S_{C}}p\left(s\right)\cdot\overline{y}_{\pi}\left(s\right)\right]-\sum_{s\in S_{A}}p\left(s\right)\cdot C+\sum_{s\in S_{B}}p\left(s\right)\cdot C
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\mathbb{E}\left(\hat{\overline{y}}^{*}\left(S\right)\right)=\mathbb{E}\left(\overline{y}_{\pi}\left(s\right)\right)-C\cdot\sum_{s\in S_{A}}p\left(s\right)+C\cdot\sum_{s\in S_{B}}p\left(s\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $\sum_{s\in S_{A}}p\left(s\right)=p\left(S_{A}\right)=p\left(\underset{1}{\mathbb{I}}=1;\underset{N}{\mathbb{I}}=0\right)=\pi_{1}-\pi_{1N}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Como estamos en MSA, todos los 
+\begin_inset Formula $\pi_{i}$
+\end_inset
+
+ y 
+\begin_inset Formula $\pi_{ij}$
+\end_inset
+
+ son del mismo valor, con 
+\begin_inset Formula $\forall i:\pi_{i}=\frac{n}{N}=f$
+\end_inset
+
+ y 
+\begin_inset Formula $\pi_{ij}=\frac{n\left(n-1\right)}{N\left(N-1\right)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $\sum_{s\in S_{B}}p\left(s\right)=p\left(S_{B}\right)=p\left(\underset{1}{\mathbb{I}}=0;\underset{N}{\mathbb{I}}=1\right)=\pi_{N}-\pi_{1N}=\pi_{1}-\pi_{1N}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\mathbb{E}\left(\hat{\overline{y}}^{*}\left(S\right)\right)=\mathbb{E}\left(\overline{y}_{\pi}\left(s\right)\right)-C\cdot\left(\pi_{1}-\pi_{1N}\right)+C\cdot\left(\pi_{1}-\pi_{1N}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\mathbb{E}\left(\hat{\overline{y}}^{*}\left(S\right)\right)=\mathbb{E}\left(\overline{y}_{\pi}\left(s\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Ya probamos que el 
+\begin_inset Formula $\pi$
+\end_inset
+
+-estimador de la media es insesgado:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\mathbb{E}\left(\hat{\overline{y}}^{*}\left(S\right)\right)=\overline{y}_{U}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+b Verificar la fórmula de la varianza.
+\end_layout
+
+\begin_layout Standard
+Se hace evidente que vamos a necesitar desarrollar de alguna forma la ecuación
+ e intentar aproximarla
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V\left(\hat{\overline{y}}^{*}\left(S\right)\right)=\mathbb{E}\left[\left(\hat{\overline{y}}^{*}\right)^{2}\left(S\right)\right]-\mathbb{E}^{2}\left[\hat{\overline{y}}^{*}\left(S\right)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Buscamos 
+\begin_inset Formula $\mathbb{E}\left[\left(\hat{\overline{y}}^{*}\right)^{2}\left(S\right)\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbb{E}\left[\left(\hat{\overline{y}}^{*}\right)^{2}\left(S\right)\right]=\sum_{s\in\Omega}p\left(s\right)\cdot\left(\hat{\overline{y}}^{*}\right)^{2}\left(s\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbb{E}\left(\hat{\overline{y}}^{*}\left(S\right)\right)=\sum_{s\in S_{A}}p\left(s\right)\cdot\left(\overline{y}_{\pi}\left(s\right)-C\right)^{2}+\sum_{s\in S_{B}}p\left(s\right)\cdot\left(\overline{y}_{\pi}\left(s\right)+C\right)^{2}+\sum_{s\in S_{C}}p\left(s\right)\cdot\overline{y}_{\pi}^{2}\left(s\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbb{E}\left(\hat{\overline{y}}^{*}\left(S\right)\right)=\sum_{s\in S_{A}}p\left(s\right)\cdot\left(\overline{y}_{\pi}^{2}\left(s\right)+2C\overline{y}_{\pi}\left(s\right)+C^{2}\right)+\sum_{s\in S_{B}}p\left(s\right)\cdot\left(\overline{y}_{\pi}^{2}\left(s\right)-2C\overline{y}_{\pi}\left(s\right)+C^{2}\right)+\sum_{s\in S_{C}}p\left(s\right)\cdot\overline{y}_{\pi}^{2}\left(s\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\mathbb{E}\left(\hat{\overline{y}}^{*}\left(S\right)\right) & =\sum_{s\in S_{A}}p\left(s\right)\cdot\overline{y}_{\pi}^{2}\left(s\right)-2C\cdot\sum_{s\in S_{A}}p\left(s\right)\overline{y}_{\pi}\left(s\right)+\sum_{s\in S_{A}}p\left(s\right)\cdot C^{2}\\
+ & +\sum_{s\in S_{B}}p\left(s\right)\cdot\overline{y}_{\pi}^{2}\left(s\right)+2C\sum_{s\in S_{B}}p\left(s\right)\cdot\overline{y}_{\pi}\left(s\right)+C^{2}\sum_{s\in S_{B}}p\left(s\right)+\sum_{s\in S_{C}}p\left(s\right)\cdot\overline{y}_{\pi}^{2}\left(s\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\mathbb{E}\left(\hat{\overline{y}}^{*}\left(S\right)\right) & =\left[\sum_{s\in S_{A}}p\left(s\right)\cdot\overline{y}_{\pi}^{2}\left(s\right)+\sum_{s\in S_{B}}p\left(s\right)\cdot\overline{y}_{\pi}^{2}\left(s\right)+\sum_{s\in S_{C}}p\left(s\right)\cdot\overline{y}_{\pi}^{2}\left(s\right)\right]\\
+ & +2C\cdot\sum_{s\in S_{A}}p\left(s\right)\overline{y}_{\pi}\left(s\right)-2C\sum_{s\in S_{B}}p\left(s\right)\cdot\overline{y}_{\pi}\left(s\right)+C^{2}\cdot\sum_{s\in S_{A}}p\left(s\right)+C^{2}\cdot\sum_{s\in S_{B}}p\left(s\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\mathbb{E}\left(\hat{\overline{y}}^{*}\left(S\right)\right) & =\mathbb{E}\left(\overline{y}_{\pi}^{2}\right)\\
+ & -2C\cdot\sum_{s\in S_{A}}p\left(s\right)\overline{y}_{\pi}\left(s\right)+2C\sum_{s\in S_{B}}p\left(s\right)\cdot\overline{y}_{\pi}\left(s\right)+C^{2}\cdot\left(\pi_{1}-\pi_{N1}\right)+C^{2}\cdot\left(\pi_{1}-\pi_{N1}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\mathbb{E}\left(\hat{\overline{y}}^{*}\left(S\right)\right) & =\mathbb{E}\left(\overline{y}_{\pi}^{2}\right)-2C\cdot\left(\sum_{s\in S_{A}}p\left(s\right)\overline{y}_{\pi}\left(s\right)-\sum_{s\in S_{B}}p\left(s\right)\cdot\overline{y}_{\pi}\left(s\right)\right)+2C^{2}\cdot\left(\pi_{1}-\pi_{N1}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+Volvemos a la fórmula 
+\end_layout
+
+\begin_layout Standard
+Considerando que conocemos 
+\begin_inset Formula $\mathbb{E}\left(\overline{y}_{\pi}\right)=\overline{y}_{U}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V\left(\hat{\overline{y}}^{*}\left(S\right)\right)=\mathbb{E}\left[\left(\hat{\overline{y}}^{*}\right)^{2}\left(S\right)\right]-\mathbb{E}^{2}\left[\hat{\overline{y}}^{*}\left(S\right)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V\left(\hat{\overline{y}}^{*}\left(S\right)\right)=\left[\mathbb{E}\left(\overline{y}_{\pi}^{2}\right)+2C\cdot\left(\sum_{s\in S_{A}}p\left(s\right)\overline{y}_{\pi}\left(s\right)-\sum_{s\in S_{B}}p\left(s\right)\cdot\overline{y}_{\pi}\left(s\right)\right)+2C^{2}\cdot\left(\pi_{1}-\pi_{N1}\right)\right]-\mathbb{E}^{2}\left[\hat{\overline{y}}^{*}\left(S\right)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V\left(\hat{\overline{y}}^{*}\left(S\right)\right)=\mathbb{E}\left(\overline{y}_{\pi}^{2}\right)-\mathbb{E}^{2}\left[\hat{\overline{y}}^{*}\left(S\right)\right]-2C\cdot\left[\left(\sum_{s\in S_{A}}p\left(s\right)\overline{y}_{\pi}\left(s\right)-\sum_{s\in S_{B}}p\left(s\right)\cdot\overline{y}_{\pi}\left(s\right)\right)-C\cdot\left(\pi_{1}-\pi_{N1}\right)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bajo MSA, la probabilidad de cada muestra es la misma: 
+\begin_inset Formula $\forall s\in\Omega:p\left(s\right)=\nicefrac{1}{\binom{N}{n}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V\left(\hat{\overline{y}}^{*}\left(S\right)\right)=V\left(\overline{y}_{\pi}^{2}\right)-2C\left[p\left(s\right)\cdot\left(\sum_{s\in S_{A}}\overline{y}_{\pi}\left(s\right)-\sum_{s\in S_{B}}\overline{y}_{\pi}\left(s\right)\right)-C\cdot\left(\pi_{1}-\pi_{N1}\right)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\overline{y}_{\pi}\left(s\right)=\sum_{i=1}^{N}e_{i}\cdot s$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\forall s\in S_{A}:\exists j/e_{j}\cdot s=N$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\forall s\in S_{B}:\exists j/e_{j}\cdot s=1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $N_{A}=N_{B}=\binom{N-2}{n-1}$
+\end_inset
+
+, ya que son las colas que se arman cuando se fija uno de los elementos
+ atípicos y se excluye el otro.
+\end_layout
+
+\begin_layout Standard
+En un punto aparte vamos a desarrollar la idea de que 
+\begin_inset Formula $\sum_{s\in S_{A}}\overline{y}_{\pi}\left(s\right)-\sum_{s\in S_{B}}\overline{y}_{\pi}\left(s\right)=N_{A}\cdot\left(\frac{y_{N}}{n}-\frac{y_{1}}{n}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V\left(\hat{\overline{y}}^{*}\left(S\right)\right)=V\left(\overline{y}_{\pi}^{2}\right)-2C\left[\frac{p\left(s\right)}{n}\cdot\left(\sum_{s\in S_{A}}\sum_{i=1}^{N_{A}}e_{i}\cdot s-\sum_{s\in S_{B}}\sum_{i=1}^{N_{B}}e_{i}\cdot s\right)-C\cdot\left(\pi_{1}-\pi_{N1}\right)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V\left(\hat{\overline{y}}^{*}\left(S\right)\right)=V\left(\overline{y}_{\pi}^{2}\right)-2C\cdot\left[\frac{p\left(s\right)}{n}\cdot\left(N_{A}\cdot y_{N}-N_{A}\cdot y_{1}\right)-C\cdot\left(\pi_{1}-\pi_{N1}\right)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V\left(\hat{\overline{y}}^{*}\left(S\right)\right)=V\left(\overline{y}_{\pi}^{2}\right)-2C\left[\frac{1}{\binom{N}{n}}\cdot\binom{N-2}{n-1}\left(y_{N}-y_{1}\right)-C\cdot\left(\pi_{1}-\pi_{N1}\right)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{1}{\binom{N}{n}}\cdot\binom{N-2}{n-1}=\frac{\left(N-2\right)!}{\left(n-1\right)!\left(\left(N-2\right)-\left(n-1\right)\right)!}\cdot\frac{n!\left(N-n\right)!}{N!}=\frac{\left(N-n\right)!}{\left(N-n-1\right)!}\cdot\frac{n!}{\left(n-1\right)!}\cdot\frac{\left(N-2\right)!}{N!}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{1}{\binom{N}{n}}\cdot\binom{N-2}{n-1}=\frac{\left(N-n\right)\cdot n}{N\left(N-1\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V\left(\hat{\overline{y}}^{*}\left(S\right)\right)=V\left(\overline{y}_{\pi}^{2}\right)-2C\cdot\left[\frac{1}{n}\cdot\frac{\left(N-n\right)\cdot n}{N\left(N-1\right)}\cdot\left(y_{N}-y_{1}\right)-C\cdot\left(\pi_{1}-\pi_{N1}\right)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Además, 
+\begin_inset Formula $\pi_{1}-\pi_{N1}=\frac{n}{N}-\frac{n\left(n-1\right)}{N\left(N-1\right)}=\frac{n\left(N-1\right)-n\left(n-1\right)}{N\left(N-1\right)}=\frac{nN-n^{2}}{N\left(N-1\right)}=\frac{n\left(N-n\right)}{N\left(N-1\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V\left(\hat{\overline{y}}^{*}\left(S\right)\right)=V\left(\overline{y}_{\pi}^{2}\right)-2C\cdot\left[\frac{\left(N-n\right)}{N\left(N-1\right)}\cdot\left(y_{N}-y_{1}\right)-C\cdot\frac{n\left(N-n\right)}{N\left(N-1\right)}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V\left(\hat{\overline{y}}^{*}\left(S\right)\right)=V\left(\overline{y}_{\pi}^{2}\right)-2C\frac{\left(N-n\right)}{N\left(N-1\right)}\cdot\left[\left(y_{N}-y_{1}\right)-nC\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V\left(\hat{\overline{y}}^{*}\left(S\right)\right)=V\left(\overline{y}_{\pi}^{2}\right)-2C\cdot\frac{N-n}{N}\cdot\frac{1}{N-1}\cdot\left[\left(y_{N}-y_{1}\right)-nC\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V\left(\hat{\overline{y}}^{*}\left(S\right)\right)=V\left(\overline{y}_{\pi}^{2}\right)-\left(1-f\right)\cdot\frac{2C}{N-1}\cdot\left[\left(y_{N}-y_{1}\right)-nC\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $V\left(\overline{y}_{\pi}^{2}\right)$
+\end_inset
+
+ es conocida.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V\left(\hat{\overline{y}}^{*}\left(S\right)\right)=\frac{1-f}{n}\cdot S_{yU}^{2}-\left(1-f\right)\cdot\frac{2C}{N-1}\cdot\left[\left(y_{N}-y_{1}\right)-nC\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V\left(\hat{\overline{y}}^{*}\left(S\right)\right)=\left(1-f\right)\cdot\left[\frac{S_{yU}^{2}}{n}-\frac{2C}{N-1}\cdot\left(y_{N}-y_{1}-nC\right)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+Identidad usada:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\sum_{s\in S_{A}}\overline{y}_{\pi}\left(s\right)-\sum_{s\in S_{B}}\overline{y}_{\pi}\left(s\right)=N_{A}\cdot\left(\frac{y_{N}}{n}-\frac{y_{1}}{n}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La idea coloquial a la que acudimos acá es que cada conjunto tiene todas
+ las muestras donde está su elemento característico pero no está el otro
+ y por lo demás sus 
+\begin_inset Quotes fld
+\end_inset
+
+colas
+\begin_inset Quotes frd
+\end_inset
+
+ son iguales.
+\end_layout
+
+\begin_layout Standard
+La media está fuertemente emparentada con la suma de los totales.
+ Es claro que cada conjunto de 
+\begin_inset Formula $S_{A}$
+\end_inset
+
+ tiene un análogo en 
+\begin_inset Formula $S_{B}$
+\end_inset
+
+ que es igual en todos sus elementos excepto en 
+\begin_inset Formula $1/N$
+\end_inset
+
+.
+ Entonces, es fácil ver que la diferencia entre estos dos es 
+\begin_inset Formula $y_{N}-y_{1}$
+\end_inset
+
+.
+ Podemos agrupar así los 
+\begin_inset Formula $N_{A}=\binom{N-2}{n-1}$
+\end_inset
+
+ conjuntos obteniendo siempre la misma diferencia.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{s\in S_{A}}\overline{y}_{\pi}\left(s\right)-\sum_{s\in S_{B}}\overline{y}_{\pi}\left(s\right)=\sum_{a_{i}\in S_{A}}\sum_{j=1}^{n}\frac{a_{ij}}{n}-\sum_{b_{i}\in S_{B}}\sum_{j=1}^{n}\frac{b_{ij}}{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Reordenamos 
+\begin_inset Formula $S_{B}$
+\end_inset
+
+ para agrupar los conjuntos similares:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S_{B}'=\left\{ b'_{ij}/b'_{ij}\in S_{B}\wedge b'_{ij}\setminus a_{ij}=y_{1}\wedge a_{ij}\setminus b'_{ij}=y_{N}\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S_{B}'=S_{B}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{s\in S_{A}}\overline{y}_{\pi}\left(s\right)-\sum_{s\in S_{B}}\overline{y}_{\pi}\left(s\right)=\frac{1}{n}\left[\sum_{s_{i}\in S_{A}}\sum_{j=1}^{n}a_{ij}-\sum_{s_{i}\in S_{B}'}\sum_{j=1}^{n}b'_{ij}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\#S_{B}=\#S_{A}=\binom{N-2}{n-1}=N_{A}=N_{B}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{s\in S_{A}}\overline{y}_{\pi}\left(s\right)-\sum_{s\in S_{B}}\overline{y}_{\pi}\left(s\right)=\frac{1}{n}\left[\sum_{i=1}^{N_{A}}\sum_{j=1}^{n}a_{ij}-\sum_{i=1}^{N_{A}}\sum_{j=1}^{n}b'_{ij}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{s\in S_{A}}\overline{y}_{\pi}\left(s\right)-\sum_{s\in S_{B}}\overline{y}_{\pi}\left(s\right)=\frac{1}{n}\left[\sum_{i=1}^{N_{A}}\sum_{j=1}^{n}\left(a_{ij}-b'_{ij}\right)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Estamos comparando siempre los conjuntos que sólo se diferencian en los
+ elementos 
+\begin_inset Formula $y_{N}$
+\end_inset
+
+ e 
+\begin_inset Formula $y_{1}$
+\end_inset
+
+, ya que 
+\begin_inset Formula $b'_{ij}\setminus a_{ij}=y_{1}\wedge a_{ij}\setminus b'_{ij}=y_{N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{s\in S_{A}}\overline{y}_{\pi}\left(s\right)-\sum_{s\in S_{B}}\overline{y}_{\pi}\left(s\right)=\frac{1}{n}\sum_{i=1}^{N_{A}}\left(y_{N}-y_{1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{s\in S_{A}}\overline{y}_{\pi}\left(s\right)-\sum_{s\in S_{B}}\overline{y}_{\pi}\left(s\right)=\frac{N_{A}}{n}\left(y_{N}-y_{1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+c ¿Para qué valores de 
+\begin_inset Formula $C$
+\end_inset
+
+ el nuevo estimador es más preciso que el 
+\begin_inset Formula $\pi$
+\end_inset
+
+-estimador?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{V\left(\hat{\overline{y}}^{*}\left(S\right)\right)}{V\left(\overline{y}_{\pi}\left(S\right)\right)}=\frac{\left(1-f\right)\cdot\left[\frac{S_{yU}^{2}}{n}-\frac{2C}{N-1}\cdot\left(y_{N}-y_{1}-nC\right)\right]}{\left(1-f\right)\cdot\frac{S_{yU}^{2}}{n}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{V\left(\hat{\overline{y}}^{*}\left(S\right)\right)}{V\left(\overline{y}_{\pi}\left(S\right)\right)}=1-\frac{2C\cdot\left(\nicefrac{y_{N}}{n}-\nicefrac{y_{1}}{n}-C\right)}{\left(N-1\right)S_{yU}^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{V\left(\hat{\overline{y}}^{*}\left(S\right)\right)}{V\left(\overline{y}_{\pi}\left(S\right)\right)}<1\Rightarrow\frac{2C\cdot\left(\nicefrac{y_{N}}{n}-\nicefrac{y_{1}}{n}+C\right)}{\left(N-1\right)S_{yU}^{2}}>0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{2C\cdot\left(\nicefrac{y_{N}}{n}-\nicefrac{y_{1}}{n}-C\right)}{\left(N-1\right)S_{yU}^{2}}>0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\forall N;\Omega:\left(N-1\right)S_{yU}^{2}>0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Busquemos el caso límite:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+2C\cdot\left(\nicefrac{y_{N}}{n}-\nicefrac{y_{1}}{n}-C\right)>0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+2C\cdot\left(\nicefrac{y_{N}}{n}-\nicefrac{y_{1}}{n}-C\right)>0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $C>0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $2C=0$
+\end_inset
+
+, estamos ante el estimador 
+\begin_inset Formula $\overline{y}_{\pi}$
+\end_inset
+
+.
+ No analizamos este caso.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nicefrac{y_{N}}{n}-\nicefrac{y_{1}}{n}-C>0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nicefrac{y_{N}}{n}-\nicefrac{y_{1}}{n}>C
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y_{N}-y_{1}>nC
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+C<\frac{y_{N}-y_{1}}{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esto condice con lo que sería intuitivamente esperable: El indicador disminuye
+ la varianza respecto al tradicional siempre y cuando 
+\begin_inset Formula $C$
+\end_inset
+
+ esté 
+\begin_inset Quotes fld
+\end_inset
+
+sustrayendo
+\begin_inset Quotes frd
+\end_inset
+
+ la diferencia introducida por los atípicos 
+\begin_inset Formula $y_{1}$
+\end_inset
+
+ e 
+\begin_inset Formula $y_{N}$
+\end_inset
+
+, es decir si es menor que el aporte que hace esta diferencia.
+ 
+\end_layout
+
+\begin_layout Subsection*
+13 Suponer que 
+\begin_inset Formula $\forall k\in U:y_{k}=k$
+\end_inset
+
+.
+ Demostrar que 
+\begin_inset Formula $V_{SIST}\leq V_{MSA}$
+\end_inset
+
+ del estimador de la media para una muestra de tamaño 
+\begin_inset Formula $n$
+\end_inset
+
+ del total 
+\begin_inset Formula $N$
+\end_inset
+
+ de elementos de 
+\begin_inset Formula $U$
+\end_inset
+
+ con 
+\begin_inset Formula $a=\frac{N}{n}$
+\end_inset
+
+ entero.
+\end_layout
+
+\begin_layout Standard
+Es inmediato que hay una alta heterogeneidad entre muestras.
+\end_layout
+
+\begin_layout Standard
+Probar lo pedido equivale a mostrar que el efecto de diseño tiene un valor
+ mayor a 1.
+ Este indicador tiene una forma conocida que se desarrolló detaladamente
+ en Särndall.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\text{efdis}\left(MS;\hat{t}_{\pi}\right)=\frac{V_{SIST}}{V_{MSA}}=1+\frac{n-1}{1-f}\cdot\delta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para comprobar lo pedido hay que observar si 
+\begin_inset Formula $\delta<0$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\delta=1-\frac{N-1}{N-a}\cdot\frac{SCD}{SCT}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+1-\frac{N-1}{N-a}\cdot\frac{SCD}{SCT}<0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-\frac{N-1}{N-a}\cdot\frac{SCD}{SCT}<-1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{N-1}{N-a}\cdot\frac{SCD}{SCT}>1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula $SCD=\sum_{r=1}^{a}\sum_{s_{r}}\left(y_{k}-\overline{y}_{sr}\right)^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se observa en este caso que las muestras 
+\begin_inset Formula $s_{r}$
+\end_inset
+
+ son de la forma 
+\begin_inset Formula $\left\{ s_{ir}\right\} _{i=0}^{n}/s_{ir}=ia+r$
+\end_inset
+
+ con 
+\begin_inset Formula $r$
+\end_inset
+
+ una constante fija para cada muestra, 
+\begin_inset Formula $1<r<a$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\overline{y}_{sr}=\frac{1}{n}\cdot\sum_{i=0}^{n-1}\left(i\cdot a+r\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\overline{y}_{sr}=\frac{n}{n}r+\frac{a}{n}\cdot\sum_{i=1}^{n-1}i$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\overline{y}_{sr}=r+\frac{a}{\cancel{n}}\cdot\frac{\cancel{n}\left(n-1\right)}{2}i$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La suma de esta serie finita es conocida.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\overline{y}_{sr}=r+a\frac{n-1}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+\overline{y}_{sr}=r+a\cdot\frac{n-1}{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+SCD=\sum_{r=1}^{a}\sum_{s_{r}}\left(y_{k}-\overline{y}_{sr}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+SCD=\sum_{r=1}^{a}\sum_{i=0}^{n-1}\left(\left(i\cdot a+r\right)-r-a\cdot\frac{n-1}{2}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+SCD=\frac{a^{2}}{4}\sum_{r=1}^{a}\sum_{i=0}^{n-1}\left(2i-\left(n-1\right)\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+SCD=\frac{a^{2}}{4}\sum_{r=1}^{a}\sum_{i=0}^{n-1}\left[4i^{2}-4i\left(n-1\right)+\left(n-1\right)^{2}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\sum_{k=1}^{N}k=\frac{n\cdot\left(n+1\right)}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\sum_{k=1}^{N}k^{2}=\frac{n\cdot\left(n+1\right)\left(2n+1\right)}{6}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+SCD=\frac{a^{2}}{4}\sum_{r=1}^{a}\left[4\frac{\left(n-1\right)\cdot n\left(2n-1\right)}{6}-4\frac{n\cdot\left(n-1\right)}{2}\left(n-1\right)+n\left(n-1\right)^{2}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+SCD=\frac{a^{2}}{12}n\cdot\left(n-1\right)\sum_{r=1}^{a}\left[2\left(2n-1\right)-6\left(n-1\right)+3\left(n-1\right)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+SCD=\frac{a^{2}}{12}n\cdot\left(n-1\right)\sum_{r=1}^{a}\left(4n-2-6n+6+3n-3\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+SCD=\frac{a^{2}}{12}n\cdot\left(n-1\right)\sum_{r=1}^{a}\left(n+1\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+SCD=\frac{a^{2}}{12}n\cdot\left(n-1\right)a\left(n+1\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $N=an$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+SCD=\frac{1}{12}N\cdot\left(N-a\right)\left(N+a\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula $SCT=\sum_{U}\left(y_{k}-\overline{y}_{U}\right)^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\overline{y}_{U}=\frac{1}{N}\sum_{i=1}^{N}i$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esta es la misma serie finita que nos cruzamos en 
+\begin_inset Formula $\overline{y}_{sr}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\overline{y}_{U}=\frac{1}{N}\frac{N\left(N+1\right)}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{y}_{U}=\frac{N+1}{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{U}\left(y_{k}-\overline{y}_{U}\right)^{2}=\sum_{k=1}^{N}\left(k-\overline{y}_{U}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\sum_{i=1}^{n}\left(X_{i}-\overline{X}\right)^{2}=\sum_{i=1}^{n}X_{i}^{2}-n\overline{X}^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{U}\left(y_{k}-\overline{y}_{U}\right)^{2}=\left(\sum_{k=1}^{N}k^{2}\right)-N\overline{y}_{U}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\sum_{k=1}^{N}k^{2}=\frac{n\cdot\left(n+1\right)\left(2n+1\right)}{6}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{U}\left(y_{k}-\overline{y}_{U}\right)^{2}=\frac{N\cdot\left(N+1\right)\left(2N+1\right)}{6}-N\overline{y}_{U}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\overline{y}_{U}=\frac{N+1}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{U}\left(y_{k}-\overline{y}_{U}\right)^{2}=\frac{N\cdot\left(N+1\right)\left(2N+1\right)}{6}-N\left(\frac{N+1}{2}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{U}\left(y_{k}-\overline{y}_{U}\right)^{2}=\left(N+1\right)\left[\frac{N\cdot\left(2N+1\right)}{6}-N\frac{N+1}{4}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{U}\left(y_{k}-\overline{y}_{U}\right)^{2}=\frac{1}{12}N\cdot\left(N+1\right)\left(N-1\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{U}\left(y_{k}-\overline{y}_{U}\right)^{2}=\frac{1}{12}N\cdot\left(N+1\right)\left(N-1\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos armar el cociente
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{SCD}{SCT}\cdot\frac{N-1}{N-a}=\frac{\frac{1}{12}N\cdot\left(N-a\right)\left(N+a\right)}{\frac{1}{12}N\cdot\left(N+1\right)\left(N-1\right)}\cdot\frac{N-1}{N-a}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{SCD}{SCT}\cdot\frac{N-1}{N-a}=\frac{N+a}{N+1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $a>1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ya tenemos lo que necesitamos.
+ Esta condición es razonable ya que si 
+\begin_inset Formula $a=1$
+\end_inset
+
+ estamos en realidad ante un MSA.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+\delta\leq1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Empleando las relaciones antes citadas, es evidente que 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{V_{MS}}{V_{MSA}}\leq1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{MS}\leq V_{MSA}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Ejercicios de la Guía 3
+\end_layout
+
+\begin_layout Subsection*
+3 Considerando el ejercicio 13 de la práctica 2, para la población de 
+\begin_inset Formula $N$
+\end_inset
+
+ unidades dividida en 
+\begin_inset Formula $H=n$
+\end_inset
+
+ estratos de cada uno de los cuales se selecciona un elemento, probar que
+ 
+\begin_inset Formula $V_{EST}\leq V_{SIS}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+13-2: 
+\begin_inset Quotes fld
+\end_inset
+
+Suponer que 
+\begin_inset Formula $\forall k\in U:y_{k}=k$
+\end_inset
+
+.
+ Demostrar que 
+\begin_inset Formula $V_{SIST}\leq V_{MSA}$
+\end_inset
+
+ del estimador de la media para una muestra de tamaño 
+\begin_inset Formula $n$
+\end_inset
+
+ del total 
+\begin_inset Formula $N$
+\end_inset
+
+ de elementos de 
+\begin_inset Formula $U$
+\end_inset
+
+ con 
+\begin_inset Formula $a=\frac{N}{n}$
+\end_inset
+
+ entero.
+\begin_inset Quotes frd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En este caso, no desarrollamos una fórmula especial para el efecto diseño,
+ así que conviene comparar directamente las dos expresiones de varianza.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{SIS}\left(\hat{t}_{\pi}\right)=a\sum_{r=1}^{a}\left(t_{s_{r}}-\overline{t}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+V_{EST}\left(\hat{t}_{\pi}\right)=\sum_{h=0}^{H-1}N_{h}^{2}\frac{1-f_{h}}{n_{h}}S_{yU_{h}}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+Se aclaró que los 
+\begin_inset Formula $N_{h}$
+\end_inset
+
+ son todos iguales.
+ Además, se toma un elemento por estrato.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula $H=n=\frac{N}{a}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula $\forall1<h<H:\left(N_{h};n_{h}\right)=\left(a;1\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+V_{EST}\left(\hat{t}_{\pi}\right)=\sum_{h=0}^{H-1}N_{h}^{2}\frac{1-\frac{1}{N_{h}}}{1}S_{yU_{h}}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+V_{EST}\left(\hat{t}_{\pi}\right)=\sum_{h=0}^{H-1}N_{h}\frac{N_{h}-1}{1}S_{yU_{h}}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+V_{EST}\left(\hat{t}_{\pi}\right)=\sum_{h=0}^{n-1}a\left(a-1\right)S_{yU_{h}}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+V_{EST}\left(\hat{t}_{\pi}\right)=a\left(a-1\right)\sum_{h=0}^{n-1}S_{yU_{h}}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+
+\lang spanish
+Buscamos 
+\begin_inset Formula $S_{yU_{h}}^{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $t_{s_{r}}$
+\end_inset
+
+ y 
+\begin_inset Formula $\overline{t}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Cada uno de los 
+\begin_inset Formula $n$
+\end_inset
+
+ estratos tiene 
+\begin_inset Formula $a$
+\end_inset
+
+ elementos.
+ Por la expresión elegida, 
+\begin_inset Formula $y_{hi}=ah+i$
+\end_inset
+
+, los 
+\begin_inset Formula $n$
+\end_inset
+
+ estratos están numerados con etiquetas 
+\begin_inset Formula $\left\{ h\right\} _{0}^{n-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+S_{yU_{h}}^{2}=\frac{\sum_{i=1}^{a}\left(y_{i+h}-\overline{y}_{h}\right)^{2}}{a-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula $\overline{y}_{hEST}=\frac{\sum_{i=1}^{a}ah+i}{a}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula $\overline{y}_{hEST}=ah+\frac{\frac{a\left(a+1\right)}{2}}{a}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula $\overline{y}_{hEST}=ah+\frac{a+1}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+S_{yU_{h}}^{2}=\frac{\sum_{i=1}^{a}\left[ah+i-\left(ah+\frac{a+1}{2}\right)\right]^{2}}{a-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+S_{yU_{h}}^{2}=\frac{\sum_{i=1}^{a}\left(i-\frac{a+1}{2}\right)^{2}}{a-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+S_{yU_{h}}^{2}=\frac{1}{4}\frac{\sum_{i=1}^{a}\left[2i-\left(a+1\right)\right]^{2}}{a-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+S_{yU_{h}}^{2}=\frac{1}{4}\frac{\sum_{i=1}^{a}\left[4i^{2}-4i\left(a+1\right)+\left(a+1\right)^{2}\right]}{a-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\sum_{k=1}^{N}k=\frac{n\cdot\left(n+1\right)}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\sum_{k=1}^{N}k^{2}=\frac{n\cdot\left(n+1\right)\left(2n+1\right)}{6}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+S_{yU_{h}}^{2}=\frac{1}{4}\frac{4\frac{a\cdot\left(a+1\right)\left(2a+1\right)}{6}-4\frac{a\cdot\left(a+1\right)}{2}\left(a+1\right)+a\left(a+1\right)^{2}}{a-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+S_{yU_{h}}^{2}=\frac{a\left(a+1\right)}{12}\frac{2\cdot\left(2a+1\right)-6\cdot\left(a+1\right)+3\left(a+1\right)}{a-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+S_{yU_{h}}^{2}=\frac{a\left(a+1\right)}{12}\frac{4a+2-6a-6+3a+3}{a-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+S_{yU_{h}}^{2}=\frac{a\left(a+1\right)}{12}\frac{a-1}{a-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+\begin_inset Formula 
+\[
+S_{yU_{h}}^{2}=\frac{a\left(a+1\right)}{12}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\overline{y}_{sr}=r+a\frac{n-1}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+t_{s_{r}}=n\overline{y}_{sr}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+t_{s_{r}}=nr+a\frac{\left(n-1\right)n}{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+\begin_inset Formula 
+\[
+t_{s_{r}}=n\left(r+\frac{N-a}{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+\overline{t}=\frac{t}{a}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula $t=\sum_{i=1}^{N}i=\frac{N\left(N+1\right)}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+\begin_inset Formula 
+\[
+\overline{t}=\frac{N\left(N+1\right)}{2a}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+
+\lang spanish
+Determinamos ambas varianzas con los datos hallados
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{SIS}\left(\hat{t}_{\pi}\right)=a\sum_{r=1}^{a}\left(t_{s_{r}}-\overline{t}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{SIS}\left(\hat{t}_{\pi}\right)=a\sum_{r=1}^{a}\left(n\left(r+\frac{N-a}{2}\right)-\frac{N\left(N+1\right)}{2a}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $na=N$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{SIS}\left(\hat{t}_{\pi}\right)=an^{2}\sum_{r=1}^{a}\left(r+\frac{N-a}{2}-\frac{N+1}{2}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{SIS}\left(\hat{t}_{\pi}\right)=an^{2}\sum_{r=1}^{a}\left(r-\frac{a+1}{2}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{SIS}\left(\hat{t}_{\pi}\right)=n^{2}\frac{a}{4}\sum_{r=1}^{a}\left[2r-\left(a+1\right)\right]^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{SIS}\left(\hat{t}_{\pi}\right)=n^{2}\frac{a}{4}\sum_{r=1}^{a}\left[4r^{2}-4r\left(a+1\right)+\left(a+1\right)^{2}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\sum_{k=1}^{N}k=\frac{n\cdot\left(n+1\right)}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\sum_{k=1}^{N}k^{2}=\frac{n\cdot\left(n+1\right)\left(2n+1\right)}{6}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{SIS}\left(\hat{t}_{\pi}\right)=n^{2}\frac{a}{4}\left[4\frac{a\cdot\left(a+1\right)\left(2a+1\right)}{6}-4\frac{a\cdot\left(a+1\right)}{2}\left(a+1\right)+a\left(a+1\right)^{2}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{SIS}\left(\hat{t}_{\pi}\right)=n^{2}a^{2}\frac{a+1}{4}\left[\frac{2}{3}\left(2a+1\right)-2\cdot\left(a+1\right)+\left(a+1\right)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{SIS}\left(\hat{t}_{\pi}\right)=n^{2}a^{2}\frac{a+1}{12}\left[4a+2-6\cdot\left(a+1\right)+3\left(a+1\right)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+V_{SIS}\left(\hat{t}_{\pi}\right)=n^{2}a^{2}\frac{a+1}{12}\left(a-1\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+V_{EST}\left(\hat{t}_{\pi}\right)=a\left(a-1\right)\sum_{h=0}^{n-1}S_{yU_{h}}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+V_{EST}\left(\hat{t}_{\pi}\right)=a\left(a-1\right)\sum_{h=0}^{n-1}\frac{a\left(a+1\right)}{12}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+\begin_inset Formula 
+\[
+V_{EST}\left(\hat{t}_{\pi}\right)=a\left(a-1\right)n\frac{a\left(a+1\right)}{12}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+\frac{V_{EST}\left(\hat{t}_{\pi}\right)}{V_{SIS}\left(\hat{t}_{\pi}\right)}=\frac{a\left(a-1\right)n\frac{a\left(a+1\right)}{12}}{n^{2}a^{2}\frac{a+1}{12}\left(a-1\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+\frac{V_{EST}\left(\hat{t}_{\pi}\right)}{V_{SIS}\left(\hat{t}_{\pi}\right)}=\frac{ana}{n^{2}a^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+\frac{V_{EST}\left(\hat{t}_{\pi}\right)}{V_{SIS}\left(\hat{t}_{\pi}\right)}=\frac{1}{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+V_{EST}\left(\hat{t}_{\pi}\right)\cdot n=V_{SIS}\left(\hat{t}_{\pi}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula $n\geq1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+V_{EST}\left(\hat{t}_{\pi}\right)<V_{SIS}\left(\hat{t}_{\pi}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+
+\lang spanish
+Ejercicio 4
+\end_layout
+
+\begin_layout Subsubsection*
+a Sea una población dividida en dos estratos.
+ Se define 
+\begin_inset Formula $\phi$
+\end_inset
+
+ a la razón entre 
+\begin_inset Formula $\nicefrac{n_{1}}{n_{2}}$
+\end_inset
+
+ y 
+\begin_inset Formula $\nicefrac{n_{1Ney}}{n_{2Ney}}$
+\end_inset
+
+ que surjen de la adjudicación de Neyman.
+ El objetivo es estimar el total usando un diseño MESA.
+ Probar que la varianza obtenida con la adjudicación de Neyman es menor.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+V_{EST}\left(\hat{t}_{\pi}\right)=N_{1}^{2}\frac{1-f_{1}}{n_{1}}S_{yU_{1}}^{2}+N_{2}^{2}\frac{1-f_{2}}{n_{2}}S_{yU_{2}}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula $N_{h}^{2}\frac{1-f_{h}}{n_{h}}S_{yU_{h}}^{2}=N_{h}^{2}\left(\frac{1}{n_{h}}-\frac{1}{N_{h}}\right)S_{yU_{h}}^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula $N_{h}\gg0\Rightarrow\frac{1}{N_{h}}\approx0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula $N_{h}^{2}\frac{1-f_{h}}{n_{h}}S_{yU_{h}}^{2}=\frac{N_{h}^{2}}{n_{h}}S_{yU_{h}}^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang spanish
+\begin_inset Formula 
+\[
+V_{EST}\left(\hat{t}_{\pi}\right)\approx\frac{N_{1}^{2}}{n_{1}}S_{yU_{1}}^{2}+\frac{N_{2}^{2}}{n_{2}}S_{yU_{2}}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+V_{EST,Ney}\left(\hat{t}_{\pi}\right)=\frac{N_{1}^{2}}{n_{1Ney}}S_{yU_{1}}^{2}+\frac{N_{2}^{2}}{n_{2Ney}}S_{yU_{2}}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+V_{EST,Ney}\left(\hat{t}_{\pi}\right)=\frac{N_{1}^{2}}{n\frac{N_{1}S_{yU_{1}}}{N_{1}S_{yU_{1}}+N_{2}S_{yU_{2}}}}S_{yU_{1}}^{2}+\frac{N_{2}^{2}}{n\frac{N_{2}S_{yU_{2}}}{N_{1}S_{yU_{1}}+N_{2}S_{yU_{2}}}}S_{yU_{2}}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+V_{EST,Ney}\left(\hat{t}_{\pi}\right)=\frac{1}{n}\left(N_{1}S_{yU_{1}}+N_{2}S_{yU_{2}}\right)\frac{1}{n}\left(N_{1}S_{yU_{1}}+N_{2}S_{yU_{2}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+V_{EST,Ney}\left(\hat{t}_{\pi}\right)=\frac{1}{n^{2}}\left(N_{1}S_{yU_{1}}+N_{2}S_{yU_{2}}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Planteamos la diferencia:
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+V_{EST}\left(\hat{t}_{\pi}\right)-V_{EST,Ney}\left(\hat{t}_{\pi}\right)=\frac{N_{1}^{2}}{n_{1}}S_{yU_{1}}^{2}+\frac{N_{2}^{2}}{n_{2}}S_{yU_{2}}^{2}-\frac{1}{n^{2}}\left(N_{1}S_{yU_{1}}+N_{2}S_{yU_{2}}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\[
+V_{EST}\left(\hat{t}_{\pi}\right)-V_{EST,Ney}\left(\hat{t}_{\pi}\right)=\frac{N_{1}^{2}}{n_{1}}S_{yU_{1}}^{2}+\frac{N_{2}^{2}}{n_{2}}S_{yU_{2}}^{2}-\frac{1}{n^{2}}\left(N_{1}^{2}S_{yU_{1}}^{2}+N_{2}^{2}S_{yU_{2}}^{2}+2N_{1}S_{yU_{1}}N_{2}S_{yU_{2}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Adecuamos el primer término para poder usar un factor común.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula $\frac{N_{1}^{2}}{n_{1}}S_{yU_{1}}^{2}+\frac{N_{2}^{2}}{n_{2}}S_{yU_{2}}^{2}=\frac{1}{n}\left(\frac{N_{1}^{2}}{\frac{n_{1}}{n_{1}+n_{2}}}S_{yU_{1}}^{2}+\frac{N_{2}^{2}}{\frac{n_{2}}{n_{1}+n_{2}}}S_{yU_{2}}^{2}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula $\frac{N_{1}^{2}}{n_{1}}S_{yU_{1}}^{2}+\frac{N_{2}^{2}}{n_{2}}S_{yU_{2}}^{2}=\frac{1}{n}\left[N_{1}^{2}\left(n_{2}+1\right)S_{yU_{1}}^{2}+N_{2}^{2}\left(n_{1}+1\right)S_{yU_{2}}^{2}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula $\frac{N_{1}^{2}}{n_{1}}S_{yU_{1}}^{2}+\frac{N_{2}^{2}}{n_{2}}S_{yU_{2}}^{2}=\frac{1}{n^{2}}\left[N_{1}^{2}n\left(n_{2}+1\right)S_{yU_{1}}^{2}+N_{2}^{2}n\left(n_{1}+1\right)S_{yU_{2}}^{2}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\begin{align*}
+V_{EST}\left(\hat{t}_{\pi}\right)-V_{EST,Ney}\left(\hat{t}_{\pi}\right) & =\frac{1}{n^{2}}\left[N_{1}^{2}n\left(n_{2}\cancel{+1}\right)S_{yU_{1}}^{2}+N_{2}^{2}n\left(n_{1}\cancel{+1}\right)S_{yU_{2}}^{2}\right]\\
+ & -\frac{1}{n^{2}}\left(\cancel{N_{1}^{2}S_{yU_{1}}^{2}}\cancel{+N_{2}^{2}S_{yU_{2}}^{2}}+2N_{1}S_{yU_{1}}N_{2}S_{yU_{2}}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\begin{align*}
+V_{EST}\left(\hat{t}_{\pi}\right)-V_{EST,Ney}\left(\hat{t}_{\pi}\right) & =\frac{1}{n^{2}}\left[N_{1}^{2}nn_{2}S_{yU_{1}}^{2}+N_{2}^{2}nn_{1}S_{yU_{2}}^{2}\right]\\
+ & -\frac{1}{n^{2}}\left(2N_{1}S_{yU_{1}}N_{2}S_{yU_{2}}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\begin{align*}
+V_{EST}\left(\hat{t}_{\pi}\right)-V_{EST,Ney}\left(\hat{t}_{\pi}\right) & =\frac{1}{n^{2}}\left[N_{1}^{2}nn_{2}S_{yU_{1}}^{2}+N_{2}^{2}nn_{1}S_{yU_{2}}^{2}-2N_{1}S_{yU_{1}}N_{2}S_{yU_{2}}\right]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dada la existencia de estratos, es razonable asumir
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $n\geq2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $n_{h}>1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula $nn_{h}>1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\begin{align*}
+V_{EST}\left(\hat{t}_{\pi}\right)-V_{EST,Ney}\left(\hat{t}_{\pi}\right) & >\frac{1}{n^{2}}\left[N_{1}^{2}S_{yU_{1}}^{2}+N_{2}^{2}S_{yU_{2}}^{2}-2N_{1}S_{yU_{1}}N_{2}S_{yU_{2}}\right]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\begin{align*}
+V_{EST}\left(\hat{t}_{\pi}\right)-V_{EST,Ney}\left(\hat{t}_{\pi}\right) & >\frac{1}{n^{2}}\left(N_{1}^{2}S_{yU_{1}}^{2}-N_{2}^{2}S_{yU_{2}}^{2}\right)^{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\begin{align*}
+V_{EST}\left(\hat{t}_{\pi}\right)-V_{EST,Ney}\left(\hat{t}_{\pi}\right) & >0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula 
+\begin{align*}
+V_{EST}\left(\hat{t}_{\pi}\right) & >V_{EST,Ney}\left(\hat{t}_{\pi}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+b Probar que 
+\begin_inset Formula $\frac{V_{Ney}}{V_{EST}}\geq\frac{4\phi}{\left(1+\phi\right)^{2}}$
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Ayuda:
+\series default
+ 
+\begin_inset Formula $\frac{x+a}{x+b}\geq\frac{a}{b}$
+\end_inset
+
+ si 
+\begin_inset Formula $x\geq0$
+\end_inset
+
+ y 
+\begin_inset Formula $a\geq b$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula $V_{EST}\left(\hat{t}_{\pi}\right)\approx\frac{N_{1}^{2}}{n_{1}}S_{yU_{1}}^{2}+\frac{N_{2}^{2}}{n_{2}}S_{yU_{2}}^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula $V_{EST,Ney}\left(\hat{t}_{\pi}\right)=\frac{N_{1}^{2}}{n_{1Ney}}S_{yU_{1}}^{2}+\frac{N_{2}^{2}}{n_{2Ney}}S_{yU_{2}}^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+
+\lang spanish
+Bucamos alguna relación entre los 
+\begin_inset Formula $n_{hNey}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+n_{hNey}=n\frac{N_{h}S_{yU_{h}}}{\sum_{h=1}^{H}N_{h}S_{yU_{h}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+n_{hNey}=n\frac{N_{h}S_{yU_{h}}}{N_{1}S_{yU_{1}}+N_{2}S_{yU_{2}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nicefrac{n_{1Ney}}{n_{2Ney}}=\frac{N_{1}S_{yU_{1}}}{N_{2}S_{yU_{2}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+
+\lang spanish
+Buscamos Expresiones para Ambas Varianzas
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Recordando la hipótesis de que los 
+\begin_inset Formula $N_{h}$
+\end_inset
+
+ son 
+\begin_inset Quotes cld
+\end_inset
+
+muy grandes
+\begin_inset Quotes crd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{MESA}\left(\hat{t}_{\pi}\right)=\sum N_{h}^{2}\frac{\left(1-\cancel{f}\right)}{n_{h}}S_{h}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{MESA}\left(\hat{t}_{\pi}\right)=\frac{N_{1}^{2}S_{1}^{2}}{n_{1}}+\frac{N_{2}^{2}S_{2}^{2}}{n_{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aplicamos la asignación neyman para encontrar la otra expresión:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{MESA_{Ney}}\left(\hat{t}_{\pi}\right)=\frac{N_{1}^{2}S_{1}^{2}}{n\left(\frac{N_{1}S_{1}}{N_{1}S_{1}+N_{2}S_{2}}\right)}+\frac{N_{2}^{2}S_{2}^{2}}{n\left(\frac{N_{2}S_{2}}{N_{1}S_{1}+N_{2}S_{2}}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{MESA_{Ney}}\left(\hat{t}_{\pi}\right)=\left(N_{1}S_{1}+N_{2}S_{2}\right)\left(\frac{N_{1}S_{1}}{n}+\frac{N_{2}S_{2}}{n}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{MESA_{Ney}}\left(\hat{t}_{\pi}\right)=\frac{\left(N_{1}S_{1}+N_{2}S_{2}\right)^{2}}{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+
+\lang spanish
+Buscamos Algunas identidades para 
+\begin_inset Formula $\phi$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\phi=\frac{\nicefrac{n_{1}}{n_{2}}}{\nicefrac{n_{1Ney}}{n_{2Ney}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\phi=\frac{n_{1}n_{2Ney}}{n_{2}n_{1Ney}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nicefrac{n_{2Ney}}{n_{1Ney}}=\frac{n\left(\frac{N_{2}S_{2}}{N_{1}S_{1}+N_{2}S_{2}}\right)}{n\left(\frac{N_{1}S_{1}}{N_{1}S_{1}+N_{2}S_{2}}\right)}=\frac{N_{2}S_{yU_{2}}}{N_{1}S_{yU_{1}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\phi=\frac{n_{1}}{n_{2}}\frac{N_{2}S_{yU_{2}}}{N_{1}S_{yU_{1}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\phi\frac{n_{2}}{n_{1}}=\frac{N_{2}S_{yU_{2}}}{N_{1}S_{yU_{1}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+
+\lang spanish
+Trabajamos con la Razón pedida entre las varianzas.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nicefrac{V_{MESA_{Ney}}\left(\hat{t}_{\pi}\right)}{V_{EST}\left(\hat{t}_{\pi}\right)}=\frac{\frac{\left(N_{1}S_{1}+N_{2}S_{2}\right)^{2}}{n}}{\frac{N_{1}^{2}S_{1}^{2}}{n_{1}}+\frac{N_{2}^{2}S_{2}^{2}}{n_{2}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nicefrac{V_{MESA_{Ney}}\left(\hat{t}_{\pi}\right)}{V_{EST}\left(\hat{t}_{\pi}\right)}=\frac{1}{n}\frac{N_{1}^{2}S_{1}^{2}\left(1+\frac{N_{2}S_{2}}{N_{1}S_{1}}\right)^{2}}{N_{1}^{2}S_{1}^{2}\left[\frac{1}{n_{1}}+\frac{1}{n_{2}}\left(\frac{N_{2}S_{2}}{N_{1}S_{1}}\right)^{2}\right]}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nicefrac{V_{MESA_{Ney}}\left(\hat{t}_{\pi}\right)}{V_{EST}\left(\hat{t}_{\pi}\right)}=\frac{1}{n}\frac{\left(1+\frac{N_{2}S_{2}}{N_{1}S_{1}}\right)^{2}}{\frac{1}{n_{1}}+\frac{1}{n_{2}}\left(\frac{N_{2}S_{2}}{N_{1}S_{1}}\right)^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nicefrac{V_{MESA_{Ney}}\left(\hat{t}_{\pi}\right)}{V_{EST}\left(\hat{t}_{\pi}\right)}=\frac{\left(1+\frac{N_{2}S_{2}}{N_{1}S_{1}}\right)^{2}}{\left(n_{1}+n_{2}\right)\left[\frac{1}{n_{1}}+\frac{1}{n_{2}}\left(\frac{N_{2}S_{2}}{N_{1}S_{1}}\right)^{2}\right]}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\phi\frac{n_{2}}{n_{1}}=\frac{N_{2}S_{yU_{2}}}{N_{1}S_{yU_{1}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nicefrac{V_{MESA_{Ney}}\left(\hat{t}_{\pi}\right)}{V_{EST}\left(\hat{t}_{\pi}\right)}=\frac{1}{n}\frac{\left(1+\phi\frac{n_{2}}{n_{1}}\right)^{2}}{\left[\frac{1}{n_{1}}+\frac{1}{n_{2}}\left(\phi\frac{n_{2}}{n_{1}}\right)^{2}\right]}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nicefrac{V_{MESA_{Ney}}\left(\hat{t}_{\pi}\right)}{V_{EST}\left(\hat{t}_{\pi}\right)}=\frac{1}{n}\frac{\left(\frac{n_{1}+\phi n_{2}}{n_{1}}\right)^{2}}{\frac{n_{2}+n_{1}\left(\phi\frac{n_{2}}{n_{1}}\right)^{2}}{n_{1}n_{2}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nicefrac{V_{MESA_{Ney}}\left(\hat{t}_{\pi}\right)}{V_{EST}\left(\hat{t}_{\pi}\right)}=\frac{1}{n}\cdot\frac{n_{1}n_{2}}{n_{1}^{2}}\cdot\frac{\left(n_{1}+\phi n_{2}\right)^{2}}{n_{2}+n_{1}\left(\phi\frac{n_{2}}{n_{1}}\right)^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nicefrac{V_{MESA_{Ney}}\left(\hat{t}_{\pi}\right)}{V_{EST}\left(\hat{t}_{\pi}\right)}=\frac{1}{n}\cdot\frac{n_{2}}{n_{1}}\cdot\frac{\left(n_{1}+\phi n_{2}\right)^{2}}{n_{2}+\phi^{2}\frac{n_{2}^{2}}{n_{1}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nicefrac{V_{MESA_{Ney}}\left(\hat{t}_{\pi}\right)}{V_{EST}\left(\hat{t}_{\pi}\right)}=\frac{1}{n}\cdot\frac{n_{2}}{n_{1}}\cdot\frac{\left(n_{1}+\phi n_{2}\right)^{2}}{n_{2}\left(1+\phi^{2}\frac{n_{2}}{n_{1}}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nicefrac{V_{MESA_{Ney}}\left(\hat{t}_{\pi}\right)}{V_{EST}\left(\hat{t}_{\pi}\right)}=\frac{1}{n}\cdot\frac{1}{n_{1}}\cdot\frac{\left(n_{1}+\phi n_{2}\right)^{2}}{1+\phi^{2}\frac{n_{2}}{n_{1}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nicefrac{V_{MESA_{Ney}}\left(\hat{t}_{\pi}\right)}{V_{EST}\left(\hat{t}_{\pi}\right)}=\frac{1}{n}\cdot\frac{\left(n_{1}+\phi n_{2}\right)^{2}}{n_{1}+\phi^{2}n_{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nicefrac{V_{MESA_{Ney}}\left(\hat{t}_{\pi}\right)}{V_{EST}\left(\hat{t}_{\pi}\right)}=\frac{\left(n_{1}+\phi n_{2}\right)^{2}}{\left(n_{1}+n_{2}\right)\left(n_{1}+\phi^{2}n_{2}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nicefrac{V_{MESA_{Ney}}\left(\hat{t}_{\pi}\right)}{V_{EST}\left(\hat{t}_{\pi}\right)}=\frac{\left(n_{1}+\phi n_{2}\right)^{2}}{n_{1}\left(n_{1}+\phi^{2}n_{2}\right)+n_{2}\left(n_{1}+\phi^{2}n_{2}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nicefrac{V_{MESA_{Ney}}\left(\hat{t}_{\pi}\right)}{V_{EST}\left(\hat{t}_{\pi}\right)}=\frac{\left(n_{1}+\phi n_{2}\right)^{2}}{n_{1}^{2}+\phi^{2}n_{1}n_{2}+n_{1}n_{2}+\phi^{2}n_{2}^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(n_{1}+\phi n_{2}\right)^{2}=\left(n_{1}-\phi n_{2}\right)^{2}+4\phi n_{1}n_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nicefrac{V_{MESA_{Ney}}\left(\hat{t}_{\pi}\right)}{V_{EST}\left(\hat{t}_{\pi}\right)}=\frac{\left(n_{1}-\phi n_{2}\right)^{2}+4\phi n_{1}n_{2}}{n_{1}^{2}+\phi^{2}n_{1}n_{2}+n_{1}n_{2}+\phi^{2}n_{2}^{2}+2\phi n_{1}n_{2}-2\phi n_{1}n_{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nicefrac{V_{MESA_{Ney}}\left(\hat{t}_{\pi}\right)}{V_{EST}\left(\hat{t}_{\pi}\right)}=\frac{\left(n_{1}-\phi n_{2}\right)^{2}+4\phi n_{1}n_{2}}{n_{1}^{2}-2\phi n_{1}n_{2}+\phi^{2}n_{2}^{2}+\phi^{2}n_{1}n_{2}+n_{1}n_{2}+2\phi n_{1}n_{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nicefrac{V_{MESA_{Ney}}\left(\hat{t}_{\pi}\right)}{V_{EST}\left(\hat{t}_{\pi}\right)}=\frac{\left(n_{1}-\phi n_{2}\right)^{2}+4\phi n_{1}n_{2}}{\left(n_{1}-\phi n_{2}\right)^{2}+\phi^{2}n_{1}n_{2}+n_{1}n_{2}+2\phi n_{1}n_{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aplicamos la identidad de la consigna.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nicefrac{V_{MESA_{Ney}}\left(\hat{t}_{\pi}\right)}{V_{EST}\left(\hat{t}_{\pi}\right)}=\frac{4\phi n_{1}n_{2}}{\phi^{2}n_{1}n_{2}+n_{1}n_{2}+2\phi n_{1}n_{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nicefrac{V_{MESA_{Ney}}\left(\hat{t}_{\pi}\right)}{V_{EST}\left(\hat{t}_{\pi}\right)}=\frac{4\phi}{\phi^{2}+1+2\phi}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nicefrac{V_{MESA_{Ney}}\left(\hat{t}_{\pi}\right)}{V_{EST}\left(\hat{t}_{\pi}\right)}=\frac{4\phi}{\left(1+\phi\right)^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Punto i del Ejercicio de Estratificación
+\end_layout
+
+\begin_layout Subsection*
+i Construir el estimador de HT 
+\begin_inset Formula $\hat{d}_{i\pi}$
+\end_inset
+
+ siendo 
+\begin_inset Formula $d_{i}=\overline{y}_{U_{i}}-\overline{y}_{U}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+d_{i}=\overline{y}_{U_{i}}-\overline{y}_{U}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $W_{h}=\nicefrac{N_{h}}{N}\Rightarrow\overline{y}_{U}=\sum_{h=1}^{H}W_{h}\overline{y}_{U_{h}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+d_{i}=\overline{y}_{U_{i}}-\sum_{h=1}W_{h}\overline{y}_{U_{h}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+d_{i}=\left(1-W_{i}\right)\overline{y}_{U_{i}}-\sum_{h\neq i}W_{h}\overline{y}_{U_{h}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En Särndall, probamos que
+\lang spanish
+ siempre se cumple 
+\begin_inset Formula $\mathbb{E}\left(\sum_{s}\check{a}_{k}\right)=\sum_{U}a_{k}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Es decir, el estimador de HT es insertable.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+Sean 
+\begin_inset Formula $\hat{\overline{y}}_{s_{h}}=\frac{1}{N_{h}}\sum_{s\cap U_{h}}\frac{y_{h}}{\pi_{h}}=\frac{1}{N_{h}}\sum_{s\cap U_{h}}\check{y}_{h}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang spanish
+\begin_inset Formula $\pi_{h}=\frac{n_{h}}{N_{h}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+\hat{d}_{i\pi}=\left(1-W_{i}\right)\hat{\overline{y}}_{s_{i}}-\sum_{h\neq i}W_{h}\hat{\overline{y}}_{s_{h}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Probamos que es un estimador de la variable deseada (e insesgado).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbb{E}\left(\hat{d}_{i\pi}\right)=\mathbb{E}\left[\left(1-W_{i}\right)\hat{\overline{y}}_{s_{i}}-\sum_{h\neq i}W_{h}\hat{\overline{y}}_{s_{h}}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbb{E}\left(\hat{d}_{i\pi}\right)=\left(1-W_{i}\right)\mathbb{E}\left(\hat{\overline{y}}_{s_{i}}\right)-\sum_{h\neq i}W_{h}\mathbb{E}\left(\hat{\overline{y}}_{s_{h}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por cómo están definidos los 
+\begin_inset Formula $\hat{\overline{y}}_{s_{h}}$
+\end_inset
+
+, el resultado de Särndall aplica inmediatamente.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+\mathbb{E}\left(\hat{d}_{i\pi}\right)=\left(1-W_{i}\right)\overline{y}_{U_{i}}-\sum_{h\neq i}W_{h}\overline{y}_{U_{h}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+ii Desarollar la varianza de 
+\begin_inset Formula $\hat{d}_{i\pi}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V\left(\hat{d}_{i\pi}\right)=V\left[\left(1-W_{i}\right)\hat{\overline{y}}_{s_{i}}-\sum_{h\neq i}^{H}W_{h}\hat{\overline{y}}_{s_{h}}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V\left(\hat{d}_{i\pi}\right)=\left(1-W_{i}\right)^{2}V\left(\hat{\overline{y}}_{s_{i}}\right)+\sum_{h\neq i}^{H}W_{h}^{2}V\left(\hat{\overline{y}}_{s_{h}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Este punto está entrocado con el resto del los ejercicios sobre muestreo
+ estratificado y por lo tanto asumimos que se extiende a él la elección
+ del MESA, siendo 
+\begin_inset Quotes fld
+\end_inset
+
+cualquier adjudicación
+\begin_inset Quotes frd
+\end_inset
+
+ referido a variaciones en la cantidad de estratos y métodos para determinar
+ los 
+\begin_inset Formula $n_{h}$
+\end_inset
+
+ siempre dentro de este esquema.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $V_{MAS}\left(\hat{\overline{y}}_{s_{h}}\right)=\frac{1-f_{h}}{n_{h}}\cdot S_{yU_{h}}^{2}=$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V\left(\hat{d}_{i\pi}\right)=\left(1-W_{i}\right)^{2}\frac{1-f_{i}}{n_{i}}\cdot S_{yU_{i}}^{2}+\sum_{h\neq i}^{H}W_{h}^{2}\frac{1-f_{h}}{n_{h}}\cdot S_{yU_{h}}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+iii ¿Cuál es la adjudicación de Neyman para minimizar la varianza de 
+\begin_inset Formula $\hat{d}_{i\pi}$
+\end_inset
+
+ para un tamaño de muestra fijo?
+\end_layout
+
+\begin_layout Standard
+Para no tener que optimizar desde cero la adjudicación sobre los mismos
+ supuestos, intentamos lograr amoldar el problema a las hipótesis del caso
+ conocido con un cambio de variable.
+ Necesitamos una variable cuya varianza vamos a evaluar estrato por estrato.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\hat{d}_{i\pi}=\left(1-W_{i}\right)\hat{\overline{y}}_{s_{i}}-\sum_{h\neq i}W_{h}\hat{\overline{y}}_{s_{h}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\hat{d}_{i\pi}=\left(1-W_{i}\right)\left(\frac{1}{N_{i}}\sum_{s\cap U_{i}}\check{y}_{k}\right)-\sum_{h\neq i}W_{h}\left(\frac{1}{N_{h}}\sum_{s\cap U_{h}}\check{y}_{k}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por ser un MESA: 
+\begin_inset Formula $\forall y_{h}\in U_{h}:\pi_{k}=\frac{n_{h}}{N_{h}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\hat{d}_{i\pi}=\left(1-W_{i}\right)\left(\frac{1}{N_{i}}\sum_{s\cap U_{i}}\frac{y_{k}}{\nicefrac{n_{i}}{N_{i}}}\right)-\sum_{h\neq i}W_{h}\left(\frac{1}{N_{h}}\sum_{s\cap U_{h}}\frac{y_{k}}{\nicefrac{n_{h}}{N_{h}}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\hat{d}_{i\pi}=\left(1-W_{i}\right)\left(\frac{1}{n_{i}}\sum_{s\cap U_{i}}y_{k}\right)-\sum_{h\neq i}W_{h}\left(\frac{1}{n_{h}}\sum_{s\cap U_{h}}y_{k}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\hat{d}_{i\pi}=W_{i}\sum_{s\cap U_{i}}\frac{\left(\nicefrac{1}{W_{i}}-1\right)}{n_{i}}y_{k}+\sum_{h\neq i}\left(\sum_{s\cap U_{h}}\left(-\frac{W_{h}}{n_{h}}\right)y_{k}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\hat{d}_{i\pi}=\sum_{s\cap U_{i}}\frac{W_{i}}{n_{i}}\left[\left(\nicefrac{1}{W_{i}}-1\right)y_{k}\right]+\sum_{h\neq i}\left(\sum_{s\cap U_{h}}\left(-\frac{W_{h}}{n_{h}}\right)y_{k}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $z_{k}=\begin{cases}
+\left(\nicefrac{1}{W_{i}}-1\right)y_{k} & k\in h_{i}\\
+-y_{k} & k\notin h_{i}
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\hat{d}_{i\pi}=\sum_{s\cap U_{i}}z_{k}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ahora la ecuación tiene una forma que nos deja aplicar la fórmula ya conocida
+ para la asignación óptima de Neyman:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+n_{h}=n\cdot\frac{N_{h}S_{zU_{h}}}{\sum_{k}N_{k}S_{zU_{k}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Buscamos la varianza de esta nueva variable:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $V\left(z_{kh}\right)=\begin{cases}
+V\left[\left(\nicefrac{1}{W_{i}}-1\right)y_{k}\right] & k\in h_{i}\\
+V\left(-y_{k}\right) & k\notin h_{i}
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S_{zU_{h}}=\begin{cases}
+\left(\nicefrac{1}{W_{i}}-1\right)^{2}S_{yU_{i}} & h=i\\
+S_{yU_{h}} & h\neq i
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Especializamos con la varianza obtenida
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+n_{h}=\begin{cases}
+n\cdot\frac{N_{i}\cdot\left(\nicefrac{1}{W_{i}}-1\right)^{2}S_{yU_{i}}}{\sum_{k\neq i}N_{k}S_{yU_{k}}+N_{i}\cdot\left(\nicefrac{1}{W_{i}}-1\right)^{2}S_{yU_{i}}} & h=i\\
+n\cdot\frac{N_{h}S_{yU_{h}}}{\sum_{k\neq i}N_{k}S_{yU_{k}}+N_{i}\cdot\left(\nicefrac{1}{W_{i}}-1\right)^{2}S_{yU_{i}}} & h\neq i
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+iv ¿Cuándo existirán entre esta adjudicación y la de Neyman considerando
+ la variable de estratificación?
+\end_layout
+
+\begin_layout Standard
+Recordamos la adjudicación de Neyman:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+n_{h_{Ney}}=n\cdot\frac{N_{h}\cdot S_{yU_{h}}}{\sum_{k=1}^{H}N_{k}S_{yU_{k}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Efecto sobre 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+n_{i}=n_{i_{Ney}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+n\cdot\frac{N_{i}\cdot\left(\nicefrac{1}{W_{i}}-1\right)^{2}S_{yU_{i}}}{\sum_{k\neq i}N_{k}S_{yU_{k}}+N_{i}\cdot\left(\nicefrac{1}{W_{i}}-1\right)^{2}S_{yU_{i}}}=n\cdot\frac{N_{i}\cdot S_{yU_{i}}}{\sum_{k=1}^{H}N_{k}S_{yU_{k}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1\cdot\left(\nicefrac{1}{W_{i}}-1\right)^{2}}{\sum_{k\neq i}N_{k}S_{yU_{k}}+N_{i}\cdot\left(\nicefrac{1}{W_{i}}-1\right)^{2}S_{yU_{i}}}=\frac{1}{\sum_{k=1}^{H}N_{k}S_{yU_{k}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{\frac{\sum_{k\neq i}N_{k}S_{yU_{k}}}{\left(\nicefrac{1}{W_{i}}-1\right)^{2}}+N_{i}\cdot S_{yU_{i}}}=\frac{1}{\sum_{k\neq i}N_{k}S_{yU_{k}}+N_{i}\cdot S_{yU_{i}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como la función 
+\begin_inset Formula $\frac{1}{x}$
+\end_inset
+
+ es biyectiva cuando restringimos los valores de 
+\begin_inset Formula $x$
+\end_inset
+
+ a 
+\begin_inset Formula $\mathbb{R}^{+}$
+\end_inset
+
+ y este es el caso de nuestro denominador, podemos asegurar que esta igualdad
+ sólo se da cuando los denominadores son iguales:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{\frac{\sum_{k\neq i}N_{k}S_{yU_{k}}}{\left(\nicefrac{1}{W_{i}}-1\right)^{2}}+N_{i}\cdot S_{yU_{i}}}=\frac{1}{\sum_{k\neq i}N_{k}S_{yU_{k}}+N_{i}\cdot S_{yU_{i}}}\text{\ensuremath{\Rightarrow}}\frac{\sum_{k\neq i}N_{k}S_{yU_{k}}}{\left(\nicefrac{1}{W_{i}}-1\right)^{2}}+N_{i}\cdot S_{yU_{i}}=\sum_{k\neq i}N_{k}S_{yU_{k}}+N_{i}\cdot S_{yU_{i}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\sum_{k\neq i}N_{k}S_{yU_{k}}}{\left(\nicefrac{1}{W_{i}}-1\right)^{2}}+N_{i}\cdot S_{yU_{i}}=\sum_{k\neq i}N_{k}S_{yU_{k}}+N_{i}\cdot S_{yU_{i}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\sum_{k\neq i}N_{k}S_{yU_{k}}}{\left(\nicefrac{1}{W_{i}}-1\right)^{2}}=\sum_{k\neq i}N_{k}S_{yU_{k}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\sum_{k\neq i}N_{k}S_{yU_{k}}}{\sum_{k\neq i}N_{k}S_{yU_{k}}}=\left(\nicefrac{1}{W_{i}}-1\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\nicefrac{1}{W_{i}}-1\right)^{2}=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $W_{i}\leq1\Rightarrow\left(\nicefrac{1}{W_{i}}-1\right)>0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nicefrac{1}{W_{i}}-1=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nicefrac{1}{W_{i}}=2
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+W_{i}=\frac{1}{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El caso de igualdad es cuando el estrato a considerar representa la mitad
+ de la muestra.
+ 
+\end_layout
+
+\begin_layout Standard
+Observando la igualdad 
+\begin_inset Formula $\frac{1}{\frac{\sum_{k\neq i}N_{k}S_{yU_{k}}}{\left(\nicefrac{1}{W_{i}}-1\right)^{2}}+N_{i}\cdot S_{yU_{i}}}=\frac{1}{\sum_{k\neq i}N_{k}S_{yU_{k}}+N_{i}\cdot S_{yU_{i}}}$
+\end_inset
+
+ vemos que estaremos cerca de ella cuando el factor 
+\begin_inset Formula $\left(\nicefrac{1}{W_{i}}-1\right)^{2}$
+\end_inset
+
+ cumple 
+\begin_inset Formula $\left(\nicefrac{1}{W_{i}}-1\right)^{2}\approx1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si el estrato es pequeño, su peso 
+\begin_inset Formula $W_{i}$
+\end_inset
+
+ lo es también y la expresión 
+\begin_inset Formula $\nicefrac{1}{W_{i}}$
+\end_inset
+
+ tiende a crecer así como lo hace su cuadrado.
+ El numerador entonces disminuye y obtenemos un 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+ mayor.
+ 
+\end_layout
+
+\begin_layout Itemize
+Para los estratos 
+\begin_inset Formula $h\neq i$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+n_{h}=n_{h_{Ney}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+n\cdot\frac{N_{h}\cdot S_{yU_{h}}}{\sum_{k\neq i}N_{k}S_{yU_{k}}+N_{i}\cdot\left(\nicefrac{1}{W_{i}}-1\right)^{2}S_{yU_{i}}}=n\cdot\frac{N_{h}\cdot S_{yU_{h}}}{\sum_{k=1}^{H}N_{k}S_{yU_{k}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{\sum_{k\neq i}N_{k}S_{yU_{k}}+N_{i}\cdot\left(\nicefrac{1}{W_{i}}-1\right)^{2}S_{yU_{i}}}=\frac{1}{\sum_{k=1}^{H}N_{k}S_{yU_{k}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Otra vez, tenemos valores similares cuando 
+\begin_inset Formula $\left(\nicefrac{1}{W_{i}}-1\right)^{2}\approx1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+En este caso, en la medida en que el estrato 
+\begin_inset Formula $i$
+\end_inset
+
+ tenga un peso 
+\begin_inset Formula $W_{i}$
+\end_inset
+
+ pequeño, el factor 
+\begin_inset Formula $\left(\nicefrac{1}{W_{i}}-1\right)^{2}$
+\end_inset
+
+ se va a ver incrementado y por lo tanto vamos a asignarle menos muestras
+ a los demás estratos.
+\end_layout
+
+\begin_layout Itemize
+Como era de esperar, conocer más información sobre una de las variables
+ siempre nos obliga a asignarle más muestras, en este caso hallamos la ley
+ de acuerdo a la cual eso sucede.
+ 
+\end_layout
+
+\begin_layout Itemize
+Los valores que adopta la variable en el universo de estudio no son drásticament
+e importantes, el efecto se da de acuerdo al peso 
+\begin_inset Formula $W_{i}$
+\end_inset
+
+ del estrato cuya diferencia respecto a la media nos importa.
+\end_layout
+
+\begin_layout Itemize
+En nuestro marco el marco construido con nuestra variable auxiliar, las
+ empresas clasificadas como pequeñas representan un estrato muy poco significati
+vo y por lo tanto la diferencia en la asignación va a ser apreciable.
+\end_layout
+
+\end_body
+\end_document

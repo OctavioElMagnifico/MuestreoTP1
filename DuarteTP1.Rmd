@@ -1,0 +1,643 @@
+---
+title: "Muestreo: Primer Trabajo Práctico"
+autor: "Octavio Duarte"
+output:
+  pdf_document:
+    latex_engine: xelatex
+  html_document: default
+---
+
+# Preparación
+
+Cargamos las librerías que planeamos usar e importamos los marcos de datos necesarios.
+
+```{r preparación}
+
+library("tidyverse")
+
+library("knitr")
+
+library("stratification")
+
+library("PracTools")
+
+library("sampling")
+
+library("lmtest")
+
+library("here")
+
+set_here()
+
+load("Marco.PO.RData")
+
+load("Prueba.Piloto.RData")
+
+marcoAuxiliar  <- as_tibble(Marco.PO)
+
+piloto  <- as_tibble(Prueba.Piloto)
+
+set.seed(42)
+```
+# 1 - Muestreo Aleatorio Simple
+
+## a Estudiar la simetría de la variable PO a través de gráficos y medidas.
+
+```{r gráficosDePO, cache=T}
+
+marcoAuxiliar %>% ggplot()+
+  aes(x = PO)+
+  geom_bar() +
+  ggtitle("Histograma de la variable PO.")
+
+
+```
+
+El primer gráfico ya revela que tenemos toda clase de inconvenientes. Hay asimetría y varios grupos de datos claramente separados.
+
+Buscamos la media y el desvío estándar de esta variable, como ya sabemos que va a ser alta, buscamos además la mediana y el máximo para darnos una mejor idea de su comportamiento.
+
+```{r algunas medidas}
+PO  <- marcoAuxiliar$PO
+
+medidasPO  <- tibble(
+  media = mean(PO),
+  max = max(PO),
+  min = min(PO),
+  mediana = median(PO),
+  varianza = var(PO),
+  "rango inter-cuartil" = IQR(PO),
+  DMV = mad(PO),
+  CV = sqrt(varianza) / media
+)
+
+kable(medidasPO, caption = "Algunos Indicadores de la Variable PO.")
+```
+
+
+### Observaciones
+
+  Quizás uno de los datos más llamativos sea la diferencia entre la media y la mediana, de un `r medidasPO$media - medidasPO$mediana / medidasPO$mediana * 100`%.
+  El coeficiente de variación ampliamente superior a *100%* tampoco promete un camino fácil.
+
+## b Calcular el tamaño de muestra necesario para obtener los *CV* fijados y la respuesta considerada estableciendo un muestreo simple al azar.
+
+ Estos coeficientes de variación son respecto a las medias, por lo que vamos a tomar una fórmula que se basa en asumir que la variable bajo estudio es normal, establecer un intervalo de confianza y usarlo para despejar como variable el tamaño de la muestra. En este caso, consideramos que la variable auxiliar *PO* es válida para dar cuenta de la homogeneidad en el universo bajo estudio.
+
+  El paquete PracTools tiene ya incorporada esta fórmula.
+
+```{r tamaños para MAS en condiciones ideales}
+
+nPorCVIdeales  <-  tibble(
+  "5%"  = nCont(CV0=0.05,CVpop=medidasPO$CV),
+  "3%"  = nCont(CV0=0.03,CVpop=medidasPO$CV),
+  "1%"  = nCont(CV0=0.01,CVpop=medidasPO$CV)
+)
+
+kable(nPorCVIdeales, caption = "Tamaños para un MAS sin considerar la no respuesta.")
+```
+
+  Como cabe esperar dado que ya sabemos que la variable auxiliar tiene un comportamiento muy poco idóneo, incluso en condiciones ideales (todavía no hicimos intervenir la no respuesta) se requiere muestrear aproximadamente un tercio de la población para obtener el coeficiente de variación más laxo considerado y el de 1% exige un tamaño de muestra superior a *N* siento teóricamente imposible. El *CV* de 3% está cerca del total, por lo que va a exigir un censo al añadir esta consideración.
+
+```{r tamaños para MAS considerando tamaño de respuesta}
+
+nPorCV  <- tibble(
+  "5%"  = ( 1 / 0.85 ) * nCont(CV0=0.05,CVpop=medidasPO$CV),
+  "3%"  = ( 1 / 0.85 ) * nCont(CV0=0.03,CVpop=medidasPO$CV),
+  "1%"  = ( 1 / 0.85 ) * nCont(CV0=0.01,CVpop=medidasPO$CV)
+)
+
+kable(nPorCV, caption = "Tamaños para un MAS, considerando la no respuesta.")
+```
+
+## c Especificar qué fórmula se usa para estimar el tamaño de muestra en el caso de dominios y calcular este suponiendo tres valores posibles para el $CV_y$ en el caso de cada dominio particular y 3 dominios cada uno con una proporción distinta de unidades respecto al universo. 
+
+Realizando un desarrollo similar al indicado antes y considerando el trabajo en dominios, obtenemos el tamaño de muestra con este cálculo:
+
+$n = {1-P \over P} \cdot {1 \over {CV_0}^2 }$
+
+Este cálculo puede realizarse en forma automática empleando el paquete `PracTools` mediante el comando `nPropCont` . 
+
+```{r Dominios}
+cvs  <-  c( "5%"=0.05, "3%" =0.03, "1%"= 0.01)
+
+proporciones  <-  c("3/4" = 0.75, "4/10" = 0.4, "1/10" = 0.1)
+
+dominiosPorCVyP  <- tibble(
+  CV = rep(cvs,3),
+  proporciones = rep(proporciones, each=3)
+)
+
+dominiosPorCVyP$n <- map2_dbl(
+  dominiosPorCVyP$CV,
+  dominiosPorCVyP$proporciones,
+  ~nProp(CV0=.x,
+        pU=.y,
+        N=3900)
+  )
+
+kable(dominiosPorCVyP, caption = "Tamaños de Muestra para los dominios según su representatividad y el CV deseado.")
+```
+
+## d A partir de este punto, se considera diseños estratificados. Estratificando según el tamaño según el criterio indicado, calcular el tamaño de muestra para la estimación de la media de la variable *PO* asumiendo adjudicación proporcional y de Neyman para los *CV* y la tasa de respuesta considerada.
+
+```{r estratificación del marco}
+asignarEstrato <- function(x) {
+  ifelse(x<10,"Pequeña",
+                ifelse(x<35,"Mediana","Grande")
+  )
+}
+
+marcoAuxiliar %>% mutate(estrato = asignarEstrato(PO) ) -> marcoAuxiliar
+```
+
+Observamos las 30 primeras filas para ver el formato de la tabla obtenida.
+
+`r kable(marcoAuxiliar[1:30,], caption = "Fracción del Marco Estratificado según el Criterio Dado.")` 
+
+Además, podemos proponer un gráfico por estrato para ver si esta estratificación explica mejor los fenómenos observados:
+
+
+```{r gráfico por estrato, cache=T}
+#marcoAuxiliar %>% mutate(PO = as.factor(PO)) -> marcoAuxiliarFac
+
+marcoAuxiliar %>% ggplot( aes(x=PO, color = estrato) ) +
+     geom_bar() +
+  facet_grid(.~estrato,scales="free") +
+  ggtitle("Histograma por estrato, escala libre.")
+
+```
+
+  El gráfico muestra que el estrato más complejo y el que aporta mayores dificultades es el de empresas categorizadas como grandes. Ellas muestran una gran dispersión. De hecho, parece observarse que la gran mayoría se concentra antes de los 250 empleados, con lo cual quizás sería conveniente una categoría más.
+  Es posible que esta necesidad termine siendo capturada cuando establezcamos un estrato autorepresentado.
+
+```{r neyman}
+
+varianzaDelEstrato  <- function(df, colEstratos, estrato, colVariable) {
+  indices  <- c( which(df[colEstratos]==estrato) )
+  tablaEstrato  <- df[indices,]
+  vectorDatos  <- tablaEstrato[colVariable]
+  return( var(vectorDatos) )
+}
+
+totalDelEstrato  <- function(df, colEstratos, estrato) {
+  indices  <- c( which(df[colEstratos]==estrato) )
+  return( length(indices) )
+}
+
+varianzasPorEstrato  <- function(df,colEstratos,colVariable) {
+  estratos  <- ( unique(df[colEstratos]) )[[1]]
+  varianzas  <- map_dbl(estratos,
+    ~varianzaDelEstrato(marcoAuxiliar,
+                        colEstratos,
+                        .x,
+                        colVariable)
+  )
+
+  names(varianzas)  <- estratos
+  return(varianzas)
+}
+
+totalesPorEstrato  <- function(df,colEstratos) {
+  estratos  <- ( unique(df[colEstratos]) )[[1]]
+  totales  <- map_dbl(estratos,~totalDelEstrato(df,colEstratos,.x))
+  names(totales)  <- estratos
+  return(totales) 
+}
+
+vpE  <- varianzasPorEstrato(marcoAuxiliar,"estrato","PO")
+
+tpE  <- totalesPorEstrato(marcoAuxiliar,"estrato")
+
+asignarNeyman  <- function(df,colEstratos,colVariable,n) {
+  varianzas  <- varianzasPorEstrato(df,colEstratos,colVariable)
+  totales  <- totalesPorEstrato(marcoAuxiliar,"estrato")
+  suma  <- sum(varianzas * totales)
+  asignaciones  <- map2(varianzas,totales,~(.x * n * .y) / suma)
+  return(asignaciones)
+}
+
+asignarProporcional  <- function(df,colEstratos,n) {
+  N  <- length(df[[1]])
+  totales  <- totalesPorEstrato(marcoAuxiliar,"estrato")
+  return( map(totales,~(.x * n) / N)
+  )
+
+
+listaCVs  <- c("5%"=0.05,"3%"=0.03,"1%"=0.01)
+}
+```
+
+Recordamos que la asignación de Neyman es de valor teórico ya que depende de conocer los datos que se desea obtener. Es por esta razón que tiene sentido tomar *PO*.
+Dado que la varianza es el criterio fundamental de esta asignación y es drásticamente mayor en el estrato de empresas grandes, la muestra es acaparada po ese estrato.
+Con la asignación proporcional, obtuvimos un resultado mucho más acorde a lo que se intuiría con un razonamiento ingenuo. Esta muestra va a representar mejor los estratos según su tamaño (después de todo, ese es su criterio rector) pero no va a explicar tan precisamente la varianza de la población en estudio. Este caso es un poco extremo y cabe preguntarse si en el caso de estar limitados a esta clase de muestreo no convendría la asignación proporcional dado que parece insensato ignorar a las empresas pequeñas y medianas a favor de conocer que pasa con las de mayor tamaño. 
+En ambos casos es imposible plantear CV menores al 5%. En el caso de la asignación proporcional la muestra es una fracción muy considerable del total y en el caso de Neyman se presenta el desbalance extremo del que se habló antes. 
+
+```{r tamaños por ney y prop}
+
+listaCVs  <- c("5%"=0.05,"3%"=0.03,"1%"=0.01)
+
+CV  <-  names(nPorCV)
+
+nNeyman  <-  map_df(nPorCV,~asignarNeyman(marcoAuxiliar,"estrato","PO",.x) ) %>% mutate( CV = listaCVs )
+
+nProp  <-  map_df(nPorCV,~asignarProporcional(marcoAuxiliar,"estrato",.x) ) %>% mutate( CV = listaCVs )
+```
+
+`r kable(nNeyman, caption = "Asignación de Neyman para la estratificación en 3 categorías.")`
+
+`r kable(nProp, caption = "Asignación Proporcional para la estratificación en 3 categorías.")`
+
+## e Métodos de Estratificación en Variales Asimétricas
+
+### Geométrico
+
+#### Asignación de Neyman
+
+```{r geom neyman, cache = T}
+
+allocNey  <- c(q1=0.5,q2=0,q3=0.5)
+
+allocProp  <- c(q1=0.5,q2=0,q3=0)
+
+listaCVs  <- c("5%"=0.05,"3%"=0.03,"1%"=0.01)
+
+tresEstratos  <- c("P","M","G")
+
+cuatroEstratos  <- c("1","2","3","4")
+
+cincoEstratos  <- c("1","2","3","4","5")
+
+asigGeoNey  <- function(cv,l) {strata.geo(x=marcoAuxiliar$PO,CV=cv,Ls = l, alloc = allocNey,rh = 0.85 ) }
+
+
+listaCVs  <- c("5%"=0.05,"3%"=0.03,"1%"=0.01)
+
+nGeoNey3  <- map_df(listaCVs,~(asigGeoNey(.x,3))[["nh"]] ) %>% mutate(estrato=tresEstratos)
+
+nGeoNey4  <- map_df(listaCVs,~(asigGeoNey(.x,4))[["nh"]] ) %>% mutate(estrato=cuatroEstratos)
+
+nGeoNey5  <- map_df(listaCVs,~(asigGeoNey(.x,5))[["nh"]] ) %>% mutate(estrato=cincoEstratos )
+
+geometricoNeyman  <- list(nGeoNey3,nGeoNey4,nGeoNey5)
+
+asigProp  <- function(cv,l) {strata.geo(x=marcoAuxiliar$PO,CV=cv,Ls = l, alloc = allocProp ) }
+
+nGeoProp3  <- map_df(listaCVs,~(asigProp(.x,3))[["nh"]] ) %>% mutate(estrato=tresEstratos)
+
+nGeoProp4  <- map_df(listaCVs,~(asigProp(.x,4))[["nh"]] ) %>% mutate(estrato=cuatroEstratos)
+
+nGeoProp5  <- map_df(listaCVs,~(asigProp(.x,5))[["nh"]] ) %>% mutate(estrato=cincoEstratos)
+
+geometricoProporcional  <- list(nGeoProp3,nGeoProp4,nGeoProp5)
+
+asigLHNey  <- function(cv,l,respuesta) {strata.LH(
+                                x=marcoAuxiliar$PO,
+                                CV=cv,
+                                Ls = l,
+                                alloc = allocNey,
+                                rh = respuesta,
+                                algo="Kozak",
+                                takeall = 1,
+                                )
+}
+
+nKozNey3  <- map_df(listaCVs,~(asigLHNey(.x,3,c(0.85,0.85,1)))[["nh"]] ) %>% mutate(estrato=tresEstratos)
+
+nKozNey4  <- map_df(listaCVs,~(asigLHNey(.x,4,c(0.85,0.85,0.85,1)))[["nh"]] ) %>% mutate(estrato=cuatroEstratos)
+
+nKozNey5  <- map_df(listaCVs,~(asigLHNey(.x,5,c(0.85,0.85,0.85,0.85,1)))[["nh"]] ) %>% mutate(estrato=cincoEstratos)
+
+kozakNeyman  <- list(nKozNey3,nKozNey4,nKozNey5)
+
+agregarTotales  <- function(asignacion) {
+  cols <- ncol(asignacion)
+  totales <- map(
+    seq( 1,cols - 1),
+    ~sum( asignacion[.x] )
+  )
+  totales  <- c(totales,"Total")
+  asignacion[nrow(asignacion)+1,]  <- totales
+  return( asignacion )
+}
+
+asigLHProp  <- function(cv,l,respuesta) {strata.LH(
+                                          x=marcoAuxiliar$PO,
+                                          CV=cv,
+                                          Ls = l,
+                                          alloc = allocProp,
+                                          rh = respuesta,
+                                          algo="Kozak",
+                                          takeall = 1,
+                                          )
+}
+
+nKozProp3  <- map_df(listaCVs,~(asigLHProp(.x,3,c(0.85,0.85,1)))[["nh"]] ) %>% mutate(estrato=tresEstratos)
+
+nKozProp4  <- map_df(listaCVs,~(asigLHProp(.x,4,c(0.85,0.85,0.85,1)))[["nh"]] ) %>% mutate(estrato=cuatroEstratos)
+
+nKozProp5  <- map_df(listaCVs,~(asigLHProp(.x,5,c(0.85,0.85,0.85,0.85,1)))[["nh"]] ) %>% mutate(estrato=cincoEstratos)
+
+
+kozakProp  <- list(nKozProp3,nKozProp4,nKozProp5)
+
+geometricoNeyman  <- map(geometricoNeyman,agregarTotales)
+
+geometricoProporcional  <- map(geometricoProporcional,agregarTotales)
+
+kozakNeyman <- map(kozakNeyman,agregarTotales)
+
+kozakProp  <- map(kozakProp,agregarTotales)
+
+```
+
+Disponemos de listas con los resultados por Cv de todos los métodos de adjudicación para todas las cantidades de estratos propuestas. 
+A ellas, añadimos una última fila de totales ya que dado que está fijo el coeficiente de variación el parámetro de eficiencia es el tamaño de muestra demandado.
+
+```{r gn}
+kable(geometricoNeyman, caption = "Asignación de Neyman con optimización geométrica.")
+
+kable(geometricoProporcional, caption = "Asignación Proporcional con optimización geométrica.")
+
+kable(kozakNeyman, caption = "Asignación de Neyman con optimización de Kozak.")
+
+kable(kozakProp, caption = "Asignación Proporcional con optimización de Kozak.")
+```
+
+
+Recordamos que la estimación empleando adjudicación de Neyman es optimista, en el sentido en que dado que no conocemos la varianza de las variables en estudio, sólo va a ser certera cuando la correlación que ellas presentan con la variable auxiliar sea perfecta.
+La asignación proporcional es en cambio una estimación conservadora, lograda empleando la mínima información que es razonable presuponer (el tamaño de los estratos y de la población).
+Así, generar ambas estimaciones del tamaño de muestra nos dota de un rango: podemos interpretarlo con enunciados del tipo "Lograr un coeficiente de variación del 5% con optimización geométrica nos va a demandar entre 50 y 158 muestras si se emplea 5 estratos". 
+
+En los tamaños de las asignaciones es muy evidente la mejora al incorporar el método de optimización de Kozak así como al incrementar la cantidad de estratos (un fenómeno que ya se adivinaba con las primeras ojeadas al gráfico). La reducción en los *n* en todos los casos es muy evidente respecto a las aproximaciones menos sofisticadas que intentamos primero. Con la optimización de Kozak en particular pasamos a considerar que se puede lograr un CV del 1% con entre 361 y 367 muestras, cuando con los demás estábamos ante valores superiores a *N*. 
+
+
+
+## f
+
+
+```{r piloto}
+piloto %>%
+  ggplot( aes( x=PO, y=CE ) ) +
+  geom_point() +
+  ggtitle("Relación entre CE y PO.")
+```
+
+Este primer gráfico parece adelantar que efectivamente la dispersión es dependiente de *PO* por su característica forma de haz de reflector.
+
+ Podemos agregar una recta de regresión al gráfico para evidenciar más el fenómeno antes de recurrir a la prueba de Breusch y Pagan propuesta.
+
+
+ ```{r grafico heterosc, cache = T}
+modelo  <- lm(CE~PO+0,data=piloto)
+
+betaObservado  <- modelo[["coefficients"]] %>% unname
+
+recta  <- function(po) {
+  return(betaObservado * po)
+}
+
+piloto %>% mutate(CErecta = recta(PO),resto = CE - CErecta)  -> marcoPiloto
+
+marcoPiloto %>%
+  ggplot( aes( x=PO, y=CE,color=resto) ) +
+  geom_point() +
+  geom_line(data = marcoPiloto, aes(x=PO,y=CErecta,color=PO) ) +
+  ggtitle("Relación entre CE y PO, con su recta de regresión y color de acuerdo al tamaño del resto en cada punto.")
+ ```
+
+### Prueba de Heteroscedasticidad
+
+  Podemos emplear la función `bptest` del paquete `lmtest`. Esta pide un modelo con ordenada al origen a pesar de que deseamos uno sin ella. Consideré que no es un problema dada la pequeña fracción que representa el valor hallado, respecto al máximo que alcanza la abcisa $PO$.
+  
+```{r Prueba de Breusch y Pagan}
+modelo2  <- lm(CE~PO,data=piloto)
+
+prueba  <- bptest(modelo2)
+```
+
+Como se ve, el valor p es bajísimo y no se puede asumir homoscedasticidad. Por lo tanto vamos a aplicar el modelo propuesto a la estratificación.  
+
+
+
+### Parametrización del Modelo Heteroscedástico
+
+
+En *Valliant* se propone el astuto método de realizar una regresión entre los logaritmos de los cuadrados de los restos y los logaritmos de los valores de la variable auxiliar, ademas de detallarse comandos adecuados para realizar esta tarea en forma automática. 
+
+${e_i}^2 = \sigma^2 \cdot PO_i^{\gamma}$
+
+$ln \left( {e_i}^2 \right) = ln \left(\sigma^2 \right)+ \gamma \cdot ln \left(PO_i\right)$
+
+Queda así sugerido un método para encontrar los parámetros necesarios: vamos a realizar una regresión entre los logaritmos de los cuadrados de los restos de acuerdo al modelo lineal planteado.
+
+$ln \left({e_i}^2 \right) = \beta_1 + \beta_2 \cdot ln \left( PO_i \right) \Rightarrow \gamma \approx \beta_2 \wedge e^{\beta_1} \approx \sigma^2$
+
+```{r estimacion de gamma}
+marcoPiloto %>% mutate(logX = log(PO), logECuad=log(resto^2) ) -> marcoPiloto
+
+modeloGamma  <- lm(logECuad~logX,data=marcoPiloto)
+
+parametrosHetero  <- modeloGamma$coefficients %>% unname()
+
+gamma2  <- parametrosHetero[2]
+
+sig22  <- parametrosHetero[1] %>% exp()
+
+parametrosPractools  <- list(beta = betaObservado, gamma = gamma2, varianza = sig22)
+
+po  <- marcoPiloto$PO
+
+res  <- marcoPiloto$resto
+
+gamma1  <- (gammaFit(X=po,x=po,y=res,tol=0.001,maxiter=40))[["g.hat"]]
+
+beta1  <- mean( marcoPiloto$CE / marcoPiloto$PO )
+
+sig21  <- var( marcoPiloto$CE / marcoPiloto$PO )
+
+parametrosStrata  <- list(beta = betaObservado, gamma = gamma1, varianza = sig21)
+
+parametros  <- tibble(
+  variable = names(parametrosStrata),
+  Strata = parametrosStrata,
+  PracTools = parametrosPractools
+  )
+```
+
+ En las líneas precedentes probamos hallar gamma con la función específica para tal fin y por los métodos sugeridos en la ayuda del paquete strata (función strataLH), estos son las constantes que terminan en 1. Buscamos además las mismas constantes con el método explicado en *Valliant*. El resultado es apreciablemente dinstito para algunas de ellas.
+ 
+ 
+## g Recalcular los tamaños de muestra considerando el modelo hallado.
+
+Esta mejora está incorporada al paquete, por lo que sólo hay que repetir el código anterior añadiendo la opción con los parámetros ya estimados.
+ 
+```{r asignaciones modelo, cache = T}
+
+controlModelo  <- list(beta = betaObservado, gamma = gamma1, sig2 = sig21)
+
+modeloGeoNey  <- function(cv,l) {
+  strata.geo(x=marcoAuxiliar$PO,
+             CV=cv,Ls = l,
+             alloc = allocNey,
+             rh = 0.85,
+             model="linear",
+             model.control = controlModelo)
+}
+
+
+
+
+mGeoNey3  <- map_df(listaCVs,~(modeloGeoNey(.x,3))[["nh"]] ) %>% mutate(estrato=tresEstratos)
+
+mGeoNey4  <- map_df(listaCVs,~(modeloGeoNey(.x,4))[["nh"]] ) %>% mutate(estrato=cuatroEstratos)
+
+mGeoNey5  <- map_df(listaCVs,~(modeloGeoNey(.x,5))[["nh"]] ) %>% mutate(estrato=cincoEstratos )
+
+geometricoNeymanModelo  <- list(mGeoNey3,mGeoNey4,mGeoNey5)
+
+modeloProp  <- function(cv,l) {
+  strata.geo(x=marcoAuxiliar$PO,
+             CV=cv,
+             Ls = l,
+             alloc = allocProp,
+             model = "linear",
+             model.control = controlModelo)
+}
+
+mGeoProp3  <- map_df(listaCVs,~(modeloProp(.x,3))[["nh"]] ) %>% mutate(estrato=tresEstratos)
+
+mGeoProp4  <- map_df(listaCVs,~(modeloProp(.x,4))[["nh"]] ) %>% mutate(estrato=cuatroEstratos)
+
+mGeoProp5  <- map_df(listaCVs,~(modeloProp(.x,5))[["nh"]] ) %>% mutate(estrato=cincoEstratos)
+
+geometricoProporcionalModelo  <- list(mGeoProp3,mGeoProp4,mGeoProp5)
+
+modeloLHNey <- function(cv,l,respuesta) {
+  strata.LH(
+            x=marcoAuxiliar$PO,
+            CV=cv,
+            Ls = l,
+            alloc = allocNey,
+            rh = respuesta,
+            algo="Kozak",
+            takeall = 1,
+            model = "linear",
+            model.control = controlModelo
+                                )
+}
+
+mKozNey3  <- map_df(listaCVs,~(modeloLHNey(.x,3,c(0.85,0.85,1)))[["nh"]] ) %>% mutate(estrato=tresEstratos)
+
+mKozNey4  <- map_df(listaCVs,~(modeloLHNey(.x,4,c(0.85,0.85,0.85,1)))[["nh"]] ) %>% mutate(estrato=cuatroEstratos)
+
+mKozNey5  <- map_df(listaCVs,~(modeloLHNey(.x,5,c(0.85,0.85,0.85,0.85,1)))[["nh"]] ) %>% mutate(estrato=cincoEstratos)
+
+
+kozakNeymanModelo  <- list(mKozNey3,mKozNey4,mKozNey5)
+
+modeloLHProp <- function(cv,l,respuesta) {
+  strata.LH(
+    x=marcoAuxiliar$PO,
+    CV=cv,
+    Ls = l,
+    alloc = allocProp,
+    rh = respuesta,
+    algo="Kozak",
+    takeall = 1,
+    model = "linear",
+    model.control = controlModelo
+    )
+}
+
+mKozProp3  <- map_df(listaCVs,~(modeloLHProp(.x,3,c(0.85,0.85,1)))[["nh"]] ) %>% mutate(estrato=tresEstratos)
+
+mKozProp4  <- map_df(listaCVs,~(modeloLHProp(.x,4,c(0.85,0.85,0.85,1)))[["nh"]] ) %>% mutate(estrato=cuatroEstratos)
+
+mKozProp5  <- map_df(listaCVs,~(modeloLHProp(.x,5,c(0.85,0.85,0.85,0.85,1)))[["nh"]] ) %>% mutate(estrato=cincoEstratos)
+
+
+kozakPropModelo  <- list(mKozProp3,mKozProp4,mKozProp5)
+
+geometricoNeymanModelo <- map(geometricoNeymanModelo,agregarTotales)
+
+geometricoProporcionalModelo <- map(geometricoProporcionalModelo,agregarTotales)
+
+kozakNeymanModelo <- map(kozakNeymanModelo,agregarTotales)
+
+kozakPropModelo  <- map(kozakPropModelo,agregarTotales)
+```
+
+Imprimimos algunas tablas, como en el caso anterior:
+
+```{r tablas hetero}
+
+kable(geometricoNeymanModelo, caption = "Asignación de Neyman con optimización geometrica y un modelo heteroscedástico.")
+
+kable(geometricoProporcionalModelo, caption = "Asignación de Proporcional con optimización geometrica y un modelo heteroscedástico.")
+
+kable(kozakNeymanModelo, caption = "Asignación de Neyman con optimización de Kozak y un modelo heteroscedástico.")
+
+kable(kozakPropModelo, caption = "Asignación de Neyman con optimización de Kozak y un modelo heteroscedástico.")
+```
+
+
+  Como era de esperar, los tamaños de muestra para los mismos CV con las mismas asignaciones se incrementan con el fin de hacer cargo a la mayor varianza esperada bajo el nuevo panorama. 
+
+## h Elegir la opción más conveniente en términos de precisión en base a los puntos anteriores para generar una muestra de 200 elementos, incorporar los estratos al marco y presentarlo en un objeto. Presentar otro objeto con la muestra seleccionada. 
+
+Si bien es sencillo observar cuál es la asignación que ofrece la mejor relación entre precisión y tamaño de muestra, lo complejo en este caso es interpretar qué asignaciones son optimistas y cuáles son pesimistas y en qué grado lo son. 
+
+En principio, la asignación empleando Neyman sobre una variable auxiliar es una asignación optimista bajo el supuesto de que el comportamiento de esta y de la variable en estudio son similares. Al tomar en cuenta el modelo heteroscedástico, estamos logrando una estimación más realista, nos hacemos cargo de la diferencia en las varianzas y por tanto parece aceptable usar esta asignación. Además, efectivamente nos deja sobre un valor de *n* intermedio entre los propuestos por la asignación proporcional y la óptima de Neyman en el punto anterior.
+Cabe destacar que observando de todas formas las asignaciones proporcional y de Neyman, más allá de lo comentado, la diferencia no es de ninguna forma drástica. En todo caso cabría preguntarse cuán diferente puede ser el comportamiento de otras variables, para ver si el rendimiento mejorado que esperamos respecto a *CE* es suficiente para nuestros fines o si deberíamos incrementar algo más la muestra en atención a los avatares de otras variables. 
+
+En todos los casos el modelo de mejor rendimiento a la hora de reducir la muestra para cada nivel de precisión fue el de 5 estratos, así que es el que vamos a emplear. 
+
+* La asignación de muestras a emplear para la estificación será la de Neyman sobre una variable auxiliar a 5 estratos, ajustada para un modelo heteroscedástico. El estrato que representa los valores más extremos a partir de un corte determinado por el algoritmo es autorepresentado.
+
+```{r asignación elegida}
+
+asignacionEmpleada <- function(n,l,respuesta) {
+  strata.LH(
+    x=marcoAuxiliar$PO,
+    n=200,
+    Ls = l,
+    alloc = allocNey,
+    rh = respuesta,
+    algo="Kozak",
+    takeall = 1,
+    model = "linear",
+    model.control = controlModelo
+  )
+}
+
+asignacion  <- asignacionEmpleada(200,5,c(0.85,0.85,0.85,0.85,1))
+
+asignacion
+
+ext <- asignacion$bh
+
+asignarEstrato  <- function(x) {
+  if (x < ext[1] ) { return(1) }
+  else if (x < ext[2] ) { return(2) }
+  else if (x < ext[3] ) { return(3) }
+  else if (x < ext[4] ) { return(4) }
+  else { return(5) }
+}
+
+marcoAuxiliar %>% mutate( estrato = ( map_dbl(PO,asignarEstrato) %>% as.factor() ) ) %>% arrange(PO)-> marcoEstratificado
+
+muestra  <- strata(
+  marcoEstratificado,
+  stratanames = "estrato",
+  size = asignacion$nh,
+  method = "srswor",
+  description = T
+)
+
+save(marcoEstratificado, file="MarcoEstratificado.Rdata")
+
+save(muestra, file="MuestraSeleccionada.Rdata")
+
+```
+
